@@ -1,0 +1,22 @@
+<p>agregar-historia works!</p>
+
+<ng-container *ngIf="isPulse; else pulsado">
+    <p>El paciente {{paciente.nombre}} con {{paciente.identificacion}} no tiene una historia clinica creada.</p><br>
+    <button (click)="isPulse = false">crearHistoria</button>
+</ng-container>
+
+<ng-template #pulsado>
+    <p>{{paciente.id}}</p>
+    <p>{{paciente.nombre}}</p>
+    <p>{{paciente.segundoNombre}}</p>
+    <p>{{paciente.primerApellido}}</p>
+    <p>{{paciente.segundoApellido}}</p>
+    <p>{{paciente.identificacion}}</p>
+    <p>{{paciente.fechaNacimiento}}</p>
+
+    <form [formGroup]="formHistoria" (ngSubmit)="enviarDatos()">
+        <label for="eps">EPS</label>
+        <input formControlName="eps"> <br>
+        <button [disabled]="formHistoria.invalid">Enviar</button>
+    </form>
+</ng-template>

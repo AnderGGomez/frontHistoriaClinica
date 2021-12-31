@@ -1,0 +1,8 @@
+<p>agregar-enfermedad works!</p>
+<form [formGroup]="formEnfermedad" (ngSubmit)="enviarDatos()">
+    <label for="nombre">Nombre</label>
+    <input formControlName="nombre"> <br>
+    <label for="tipo">Tipo</label>
+    <input formControlName="tipo"> <br>
+    <button [disabled]="formEnfermedad.invalid">Enviar</button>
+</form>

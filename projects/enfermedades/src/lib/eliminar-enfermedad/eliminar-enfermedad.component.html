@@ -1,0 +1,21 @@
+<p>eliminar-enfermedad works!</p>
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarEnfermedad()">
+        <label>Id usuario</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+</div>
+
+<div *ngIf="sended">
+    <h6>Estas segudo de eliminar este paciente?</h6>
+    <p>{{enfermedad.id}}-{{enfermedad.nombre}}</p>
+    <form [formGroup]="formDelete" (ngSubmit)="eliminarEnfermedad()">
+        <label for="option">Opcion:</label>
+        <select name="opcion" formControlName="opcion">
+            <option value="true">Si</option>
+            <option selected value="false">No</option>
+        </select>
+        <button [disabled]="formDelete.invalid">eliminar</button>
+    </form>
+</div>

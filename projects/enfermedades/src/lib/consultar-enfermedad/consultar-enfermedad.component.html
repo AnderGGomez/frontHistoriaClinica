@@ -1,0 +1,10 @@
+<p>consultar-enfermedad works!</p>
+<form [formGroup]="formQuery" (ngSubmit)="buscarEnfermedad()">
+    <label>id enfermedad:</label>
+    <input type="number" formControlName="id" min="1"> <br>
+    <button [disabled]="formQuery.invalid">buscar</button>
+</form>
+
+<div *ngIf="sended">
+    {{enfermedad.id}}-{{enfermedad.nombre}}-{{enfermedad.tipo}}
+</div>

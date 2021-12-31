@@ -1,0 +1,49 @@
+<p>editar-paciente works!</p>
+
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarPaciente()">
+        <label>Id usuario</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+</div>
+
+<div *ngIf="sended">
+    <form [formGroup]="formPaciente" (ngSubmit)="enviarDatos()">
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre"> <br>
+        <label>Segundo nombre</label>
+        <input formControlName="segundoNombre"> <br>
+        <label>Primer Apellido</label>
+        <input formControlName="primerApellido"> <br>
+        <label>Segundo Apellido</label>
+        <input formControlName="segundoApellido"> <br>
+        <label>Identificacion</label>
+        <input formControlName="identificacion"> <br>
+        <label>Fecha de nacimiento.</label>
+        <input type="date" formControlName="fechaNacimiento"> <br>
+        <label>Email</label>
+        <input formControlName="email"> <br>
+        <label>Telefono</label>
+        <input formControlName="telefono"> <br>
+        <label>Sexo</label>
+        <input formControlName="sexo"> <br>
+        <label>Estado Civil</label>
+        <input formControlName="estadoCivil"> <br>
+        <label>Estrato</label>
+        <input formControlName="estrato"> <br>
+        <label>Ocupacion</label>
+        <input formControlName="ocupacion"> <br>
+        <label>Etnia</label>
+        <input formControlName="etnia"> <br>
+        <label>Discapacidad</label>
+        <input formControlName="discapacidad"> <br>
+        <label>Direccion</label>
+        <input formControlName="direccion"> <br>
+        <label>Religion</label>
+        <input formControlName="religion"> <br>
+    
+        <button [disabled]="formPaciente.invalid">Enviar</button>
+    </form>
+</div>
+

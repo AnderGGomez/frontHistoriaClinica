@@ -3,5 +3,262 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "pacientes": {
+      "projectType": "library",
+      "root": "projects/pacientes",
+      "sourceRoot": "projects/pacientes/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/pacientes/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/pacientes/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/pacientes/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/pacientes/src/test.ts",
+            "tsConfig": "projects/pacientes/tsconfig.spec.json",
+            "karmaConfig": "projects/pacientes/karma.conf.js"
+          }
+        }
+      }
+    },
+    "medicos": {
+      "projectType": "library",
+      "root": "projects/medicos",
+      "sourceRoot": "projects/medicos/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/medicos/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/medicos/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/medicos/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/medicos/src/test.ts",
+            "tsConfig": "projects/medicos/tsconfig.spec.json",
+            "karmaConfig": "projects/medicos/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cliente": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/cliente",
+      "sourceRoot": "projects/cliente/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cliente",
+            "index": "projects/cliente/src/index.html",
+            "main": "projects/cliente/src/main.ts",
+            "polyfills": "projects/cliente/src/polyfills.ts",
+            "tsConfig": "projects/cliente/tsconfig.app.json",
+            "assets": [
+              "projects/cliente/src/favicon.ico",
+              "projects/cliente/src/assets"
+            ],
+            "styles": [
+              "projects/cliente/src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-indigo/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/cliente/src/environments/environment.ts",
+                  "with": "projects/cliente/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "cliente:build:production"
+            },
+            "development": {
+              "browserTarget": "cliente:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cliente:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cliente/src/test.ts",
+            "polyfills": "projects/cliente/src/polyfills.ts",
+            "tsConfig": "projects/cliente/tsconfig.spec.json",
+            "karmaConfig": "projects/cliente/karma.conf.js",
+            "assets": [
+              "projects/cliente/src/favicon.ico",
+              "projects/cliente/src/assets"
+            ],
+            "styles": [
+              "projects/cliente/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "medicamentos": {
+      "projectType": "library",
+      "root": "projects/medicamentos",
+      "sourceRoot": "projects/medicamentos/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/medicamentos/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/medicamentos/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/medicamentos/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/medicamentos/src/test.ts",
+            "tsConfig": "projects/medicamentos/tsconfig.spec.json",
+            "karmaConfig": "projects/medicamentos/karma.conf.js"
+          }
+        }
+      }
+    },
+    "enfermedades": {
+      "projectType": "library",
+      "root": "projects/enfermedades",
+      "sourceRoot": "projects/enfermedades/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/enfermedades/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/enfermedades/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/enfermedades/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/enfermedades/src/test.ts",
+            "tsConfig": "projects/enfermedades/tsconfig.spec.json",
+            "karmaConfig": "projects/enfermedades/karma.conf.js"
+          }
+        }
+      }
+    },
+    "historiaClinica": {
+      "projectType": "library",
+      "root": "projects/historia-clinica",
+      "sourceRoot": "projects/historia-clinica/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/historia-clinica/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/historia-clinica/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/historia-clinica/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/historia-clinica/src/test.ts",
+            "tsConfig": "projects/historia-clinica/tsconfig.spec.json",
+            "karmaConfig": "projects/historia-clinica/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "pacientes"
 }

@@ -1,0 +1,19 @@
+<p>editar-enfermedad works!</p>
+
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarEnfermedad()">
+        <label>Id enfermedad</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+</div>
+
+<div *ngIf="sended">
+    <form [formGroup]="formEnfermedad" (ngSubmit)="enviarDatos()">
+        <label for="nombre">Nombre</label>
+        <input formControlName="nombre"> <br>
+        <label for="tipo">Tipo</label>
+        <input formControlName="tipo"> <br>
+        <button [disabled]="formEnfermedad.invalid">Enviar</button>
+    </form>
+</div>

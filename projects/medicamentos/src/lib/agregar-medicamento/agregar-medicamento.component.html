@@ -1,0 +1,14 @@
+<p>agregar-medicamento works!</p>
+<form [formGroup]="formMedicamento" (ngSubmit)="enviarDatos()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" formControlName="nombre"><br>
+    <label for="marca"> Marca:</label>
+    <input type="text" formControlName="marca"><br>
+    <label for="dosis"> Dosis:</label>
+    <input type="text" formControlName="dosis"><br>
+    <label for="presentacion">Presentacion:</label>
+    <input type="text" formControlName="presentacion"><br>
+    <label for="fechaCaducidad">Fecha de caducidad:</label>
+    <input type="date" formControlName="fechaCaducidad"><br>
+    <button [disabled]="formMedicamento.invalid">Enviar</button>
+</form>

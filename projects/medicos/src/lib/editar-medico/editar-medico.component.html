@@ -1,0 +1,39 @@
+<p>editar-medico works!</p>
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarMedico()">
+        <label>Id usuario</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+</div>
+
+<div *ngIf="sended">
+    <form [formGroup]="formMedico" (ngSubmit)="enviarDatos()">
+        <label>Nombre</label>
+        <input formControlName="nombre"> <br>
+        <label>Segundo nombre</label>
+        <input formControlName="segundoNombre"> <br>
+        <label>Primer Apellido</label>
+        <input formControlName="primerApellido"> <br>
+        <label>Segundo Apellido</label>
+        <input formControlName="segundoApellido"> <br>
+        <label>Identificacion</label>
+        <input formControlName="identificacion"> <br>
+        <label>Fecha de nacimiento.</label>
+        <input type="date" formControlName="fechaNacimiento"> <br>
+        <label>Email</label>
+        <input formControlName="email"> <br>
+        <label>Telefono</label>
+        <input formControlName="telefono"> <br>
+        <label>Sexo</label>
+        <input formControlName="sexo"> <br>
+        <label>Especialidad</label>
+        <input formControlName="especialidad"> <br>
+        <label>Cargo</label>
+        <input formControlName="cargo"> <br>
+        <label>IPS</label>
+        <input formControlName="ips"> <br>
+    
+        <button [disabled]="formMedico.invalid">Enviar</button>
+    </form>
+</div>

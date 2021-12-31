@@ -1,0 +1,21 @@
+<p>eliminar-medico works!</p>
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarPaciente()">
+        <label>Id usuario</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+</div>
+
+<div *ngIf="sended">
+    <h6>Estas segudo de eliminar este paciente?</h6>
+    <p>{{medico.id}}-{{medico.nombre}}</p>
+    <form [formGroup]="formDelete" (ngSubmit)="eliminarMedico()">
+        <label for="option">Opcion:</label>
+        <select name="opcion" formControlName="opcion">
+            <option value="true">Si</option>
+            <option value="false" selected>No</option>
+        </select>
+        <button [disabled]="formDelete.invalid">buscar</button>
+    </form>
+</div>

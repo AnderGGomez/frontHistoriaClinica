@@ -1,0 +1,39 @@
+<p>agregar-herencia works!</p>
+<div *ngIf="isExist">
+    <form [formGroup]="formBuilderHerencia" (ngSubmit)="enviarDatos()">
+        <label>Parentesco</label>
+        <select formControlName="parentesco">
+            <option value="padre">padre</option>
+            <option value="madre" >madre</option>
+            <option value="abuelo">abuelo</option>
+            <option value="abuela">abuela</option>
+        </select> <br>
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre"> <br>
+        <label>Segundo nombre</label>
+        <input formControlName="segundoNombre"> <br>
+        <label>Primer Apellido</label>
+        <input formControlName="primerApellido"> <br>
+        <label>Segundo Apellido</label>
+        <input formControlName="segundoApellido"> <br>
+        <label>Fecha de Creacion.</label>
+        <input type="date" formControlName="fechaCreacion"> <br>
+        <label for="medicos">Medicos</label>
+        <select formControlName="medico">
+            <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>
+        </select>
+        <div formArrayName="enfermedades"
+        *ngFor="let enfermedad of enfermedades.controls; let i = index;">
+            <div [formGroupName]="i">
+                <select formControlName="id">
+                    <option *ngFor="let item of listEnfermedades" [ngValue]="item.id" >{{item.id}}-{{item.nombre}}-{{item.tipo}}</option>
+                </select>
+                <button (click)="removeEnfermedad(i)">Remove</button>   
+            </div>
+        </div>
+        <p>
+            <button type="button" (click)="addEnfermedad()">Add</button>
+        </p>
+          <button [disabled]="formBuilderHerencia.invalid && (formBuilderHerencia.get('medico')?.value == null)">Enviar</button>
+    </form>
+</div>

@@ -1,1 +1,24 @@
 <p>eliminar-historia works!</p>
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarHistoria()">
+        <label>Id historia</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+    <ng-container *ngIf="!exist">
+        <p>La historia no existe</p>
+    </ng-container>
+</div>
+
+<div *ngIf="sended">
+    <p>Estas segudo de eliminar la historia :{{historia.id}} correspondiente al paciente</p>
+    <p>{{historia.paciente.nombre}}-{{historia.paciente.primerApellido}}-{{historia.paciente.segundoNombre}}-{{historia.paciente.identificacion}}-</p>
+    <form [formGroup]="formDelete" (ngSubmit)="eliminarHistoria()">
+        <label for="option">Opcion:</label>
+        <select name="opcion" formControlName="opcion">
+            <option value="true">Si</option>
+            <option selected value="false">No</option>
+        </select>
+        <button [disabled]="formDelete.invalid">eliminar</button>
+    </form>
+</div>

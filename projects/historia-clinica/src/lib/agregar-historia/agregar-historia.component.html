@@ -1,8 +1,8 @@
 <p>agregar-historia works!</p>
 
-<ng-container *ngIf="isPulse; else pulsado">
+<ng-container *ngIf="!isPulse; else pulsado">
     <p>El paciente {{paciente.nombre}} con {{paciente.identificacion}} no tiene una historia clinica creada.</p><br>
-    <button (click)="isPulse = false">crearHistoria</button>
+    <button (click)="isPulse = true">crearHistoria</button>
 </ng-container>
 
 <ng-template #pulsado>

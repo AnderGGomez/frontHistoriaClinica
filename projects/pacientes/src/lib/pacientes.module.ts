@@ -9,6 +9,9 @@ import { EliminarPacienteComponent } from './eliminar-paciente/eliminar-paciente
 import { ConsultarPacienteComponent } from './consultar-paciente/consultar-paciente.component';
 import { TableModule } from 'primeng/table';
 import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
+import { PacientesService } from './services/pacientes.service'
+import { Paciente } from './model/paciente';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,7 @@ import { EditarPacienteComponent } from './editar-paciente/editar-paciente.compo
     VerPacientesComponent,
     EliminarPacienteComponent,
     ConsultarPacienteComponent,
-    EditarPacienteComponent
+    EditarPacienteComponent,
   ],
   imports: [
     PacientesRoutingModule,
@@ -31,6 +34,9 @@ import { EditarPacienteComponent } from './editar-paciente/editar-paciente.compo
     EliminarPacienteComponent,
     ConsultarPacienteComponent,
     EditarPacienteComponent,
+  ],
+  providers:[
+    PacientesService,
   ]
 })
 export class PacientesModule { }

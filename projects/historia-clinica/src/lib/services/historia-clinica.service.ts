@@ -38,8 +38,7 @@ export class HistoriaClinicaService {
     return this.http.get<any>(this.apiURL+"paciente/"+id);
   }
 
-  ///provisional.
-  public obtenerPaciente(id:number): any {
-    return this.http.get<any>("http://localhost:8080/paciente/"+id);
+  public existeHistoria(id: number | undefined): any{
+    return this.http.get<any>(this.apiURL+"exist/"+id);
   }
 }

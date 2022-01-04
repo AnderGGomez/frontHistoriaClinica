@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { MedicosService } from './services/medicos.service';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import { TableModule } from 'primeng/table';
     ConsultarMedicoComponent,
     EliminarMedicoComponent,
     EditarMedicoComponent
+  ],
+  providers:[
+    MedicosService,
   ]
 })
 export class MedicosModule { }

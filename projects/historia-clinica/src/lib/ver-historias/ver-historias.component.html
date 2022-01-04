@@ -1,1 +1,4 @@
 <p>ver-historias works!</p>
+<div *ngFor="let item of historias">
+    <p>{{item.id}}-{{item.eps}}-{{item.paciente.nombre}}-{{item.paciente.identificacion}}</p>
+</div>

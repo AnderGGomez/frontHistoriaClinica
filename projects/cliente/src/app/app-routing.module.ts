@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,8 @@ const routes: Routes = [
     path: 'medicamentos',
     loadChildren: ()=> import('@utp/medicamentos').then((mod) => mod.MedicamentosModule)
   },
+  {path: 'index', component: AppComponent},
+  { path : '**', redirectTo: 'index', pathMatch: 'full'},
 ];
 
 @NgModule({

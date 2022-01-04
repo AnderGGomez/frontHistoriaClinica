@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Paciente } from '../model/paciente';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ export class PacientesService {
 
   constructor(private http: HttpClient) { }
 
-  public agregarPaciente(paciente: Paciente): any{
+  public agregarPaciente(paciente: any): any{
     return this.http.post<any>("http://localhost:8080/paciente", paciente)
   }
 
@@ -21,7 +20,7 @@ export class PacientesService {
     return this.http.get<any>("http://localhost:8080/paciente/"+id);
   }
 
-  public editarPaciente(id: number, paciente: Paciente): any{
+  public editarPaciente(id: number, paciente: any): any{
     return this.http.put<any>("http://localhost:8080/paciente/"+id, paciente);
   }
   

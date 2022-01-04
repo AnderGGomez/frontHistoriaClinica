@@ -1,0 +1,36 @@
+<p>agregar-nacimiento works!</p>
+<div *ngIf="isExist">
+    <form [formGroup]="formBuilderNacimiento" (ngSubmit)="enviarDatos()">
+        <label>Fecha de nacimiento.</label>
+        <input type="date" formControlName="fechaNacimiento"> <br>
+        <label>Tipo Parto</label>
+        <select formControlName="tipoParto">
+            <option value="natural">parto natural</option>
+            <option value="vaginal" >parto vaginal</option>
+            <option value="cesarea">parto cesárea</option>
+        </select> <br>
+        <label>Tipo Nacimiento</label>
+        <select formControlName="tipoNacimiento">
+            <option value="prematuro">nacimiento prematuro</option>
+            <option value="termino" >nacimiento término</option>
+            <option value="postmaduro">nacimiento postmaduro</option>
+        </select> <br>
+        <label for="medicos">Medicos</label>
+        <select formControlName="medico">
+            <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>
+        </select>
+        <div formArrayName="enfermedades"
+        *ngFor="let enfermedad of enfermedades.controls; let i = index;">
+            <div [formGroupName]="i">
+                <select formControlName="id">
+                    <option *ngFor="let item of listEnfermedades" [ngValue]="item.id" >{{item.id}}-{{item.nombre}}-{{item.tipo}}</option>
+                </select>
+                <button (click)="removeEnfermedad(i)">Quitar Enfermedad</button>   
+            </div>
+        </div>
+        <p>
+            <button type="button" (click)="addEnfermedad()">Agregar Enfermedad</button>
+        </p>
+          <button [disabled]="formBuilderNacimiento.invalid">Enviar</button>
+    </form>
+</div>

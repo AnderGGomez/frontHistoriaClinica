@@ -1,0 +1,53 @@
+<p>consultar-herencia works!</p>
+
+<div class="card">
+    <p-table responsiveLayout="stack" [value]="herencias">
+        <ng-template pTemplate="caption">
+            Herencia
+            <button (click)="addHerencia(historia_id)">Agregar Herencia.</button>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+                <th>
+                    Medico
+                </th>
+                <th>
+                    Enfermedades
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-herencias let-columns="columns">
+            <tr>
+                <td *ngFor="let col of cols">
+                    <span class="p-column-title">{{col.header}}</span>{{herencias[col.field]}}
+                </td>
+                <td>
+                    <span class="p-column-title">Medico</span>
+                    Nombre: {{herencias.medico.nombre}} {{herencias.medico.segundoNombre}}
+                    {{herencias.medico.primerApellido}} {{herencias.medico.segundoApellido}} <br>
+                    Registro:{{herencias.medico.identificacion}} <br>
+                    Especialidad:{{herencias.medico.especialidad}} <br>
+                </td>
+                <td>
+                    <span class="p-column-title">Enfermedades</span>
+                    <ng-container *ngFor="let enfermedad of herencias.enfermedades">
+                        Nombre: {{enfermedad.nombre}} <br>
+                        Tipo:   {{enfermedad.tipo}} <br> <br>
+                    </ng-container>
+                </td>
+                <td>
+                    <button (click)="editarHerencia(herencias.id)">Editar Herencia.</button>
+                    
+                    <button (click)="eliminarHerencia(herencias.id)">Eliminar Herencia.</button>
+                </td>
+            </tr>
+        </ng-template>
+        
+    </p-table>
+</div>

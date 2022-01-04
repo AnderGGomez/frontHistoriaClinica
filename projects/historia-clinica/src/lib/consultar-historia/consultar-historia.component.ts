@@ -7,7 +7,7 @@ import { HistoriaClinicaService } from '../services/historia-clinica.service';
 @Component({
   selector: 'lib-consultar-historia',
   templateUrl: './consultar-historia.component.html',
-  styleUrls: ['./consultar-historia.component.css']
+  styleUrls: ['./consultar-historia.component.css'],
 })
 export class ConsultarHistoriaComponent implements OnInit {
 
@@ -22,6 +22,7 @@ export class ConsultarHistoriaComponent implements OnInit {
   }
 
   public historia : Historia = new Historia;
+  public pkHistoria : number | undefined;
 
   async encuentraHistoria(pk:number):Promise<void>{
     let haveHistory : boolean | undefined;
@@ -29,6 +30,7 @@ export class ConsultarHistoriaComponent implements OnInit {
     console.log(haveHistory)
     if (haveHistory){
       this.historia = await lastValueFrom(this.historiaServicio.obtenerHistoriaByPaciente(pk))
+      this.pkHistoria = this.historia.id;
     }else{
       this.router.navigate(['historia-clinica/add-historia', pk])
     }

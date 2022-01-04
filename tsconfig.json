@@ -17,23 +17,31 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "enfermedades": [
+      "@utp/enfermedades": [
         "dist/enfermedades/enfermedades",
         "dist/enfermedades"
       ],
-      "historiaClinica": [
+      "@utp/herencias": [
+        "dist/herencias/herencias",
+        "dist/herencias"
+      ],
+      "@utp/historiaClinica": [
         "dist/historia-clinica/historia-clinica",
         "dist/historia-clinica"
       ],
-      "medicamentos": [
+      "@utp/medicamentos": [
         "dist/medicamentos/medicamentos",
         "dist/medicamentos"
       ],
-      "medicos": [
+      "@utp/medicos": [
         "dist/medicos/medicos",
         "dist/medicos"
       ],
-      "pacientes": [
+      "@utp/nacimientos": [
+        "dist/nacimientos/nacimientos",
+        "dist/nacimientos"
+      ],
+      "@utp/pacientes": [
         "dist/pacientes/pacientes",
         "dist/pacientes"
       ]

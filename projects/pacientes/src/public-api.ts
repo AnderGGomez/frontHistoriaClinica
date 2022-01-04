@@ -3,7 +3,8 @@
  */
 
 export * from './lib/pacientes.module';
-export * from './lib/services/pacientes.service'
+export * from './lib/services/pacientes.service';
+export * from './lib/model/paciente';
 export * from './lib/agregar-paciente/agregar-paciente.component';
 export * from './lib/ver-pacientes/ver-pacientes.component';
 export * from './lib/eliminar-paciente/eliminar-paciente.component';

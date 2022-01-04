@@ -9,3 +9,4 @@ export * from './lib/eliminar-historia/eliminar-historia.component';
 export * from './lib/consultar-historia/consultar-historia.component';
 export * from './lib/editar-historia/editar-historia.component';
 export * from './lib/ver-historias/ver-historias.component';
+export * from './lib/join-historia/join-historia.component';

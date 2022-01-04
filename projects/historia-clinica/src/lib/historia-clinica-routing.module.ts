@@ -5,6 +5,7 @@ import { ConsultarHistoriaComponent } from './consultar-historia/consultar-histo
 import { EliminarHistoriaComponent } from './eliminar-historia/eliminar-historia.component';
 import { VerHistoriasComponent } from './ver-historias/ver-historias.component';
 import { EditarHistoriaComponent } from './editar-historia/editar-historia.component';
+import { JoinHistoriaComponent } from './join-historia/join-historia.component';
 
 const routes: Routes = [
   {path: 'add-historia/:id', component:   AgregarHistoriaComponent},
@@ -12,6 +13,15 @@ const routes: Routes = [
   {path: 'del-historia', component:   EliminarHistoriaComponent},
   {path: 'query-historia/:id', component: ConsultarHistoriaComponent},
   {path: 'edit-historia', component:  EditarHistoriaComponent},
+  {path: 'join-historia', component:  JoinHistoriaComponent},
+  {
+    path: 'herencias',
+    loadChildren: ()=> import('@utp/herencias').then((mod) => mod.HerenciasModule)
+  },
+  {
+    path: 'nacimientos',
+    loadChildren: ()=> import('@utp/nacimientos').then((mod) => mod.NacimientosModule)
+  },
 ];
 
 @NgModule({

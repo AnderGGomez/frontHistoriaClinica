@@ -1,1 +1,24 @@
 <p>editar-historia works!</p>
+<div *ngIf="sended == false">
+    <form [formGroup]="formQuery" (ngSubmit)="buscarHistoria()">
+        <label>Id enfermedad</label>
+        <input type="number" min="1" formControlName="id">
+        <button [disabled]="formQuery.invalid">buscar</button>
+    </form>
+    <ng-container *ngIf="!exist">
+        <p>Esta historia clinica no existe</p>
+    </ng-container>
+</div>
+
+<div *ngIf="sended">
+    <p>{{historia.paciente.id}}</p>
+    <p>{{historia.paciente.nombre}}</p>
+    <p>{{historia.paciente.primerApellido}}</p>
+    <p>{{historia.paciente.segundoApellido}}</p>
+    <p>{{historia.paciente.identificacion}}</p>
+    <form [formGroup]="formHistoria" (ngSubmit)="enviarDatos()">
+        <label for="eps">EPS</label>
+        <input formControlName="eps"> <br>
+        <button [disabled]="formHistoria.invalid">Enviar</button>
+    </form>
+</div>

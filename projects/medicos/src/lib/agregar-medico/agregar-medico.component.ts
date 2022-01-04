@@ -50,7 +50,6 @@ export class AgregarMedicoComponent implements OnInit {
     medico.especialidad     =this.formMedico.get("especialidad")?.value;
     medico.cargo            =this.formMedico.get("cargo")?.value;
     medico.ips              =this.formMedico.get("ips")?.value;
-
     this.formMedico.reset()
     let dataReturn: Medico = new Medico;
 

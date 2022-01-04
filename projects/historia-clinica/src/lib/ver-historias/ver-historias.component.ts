@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { lastValueFrom } from 'rxjs';
+import { Historia } from '../model/historia';
+import { HistoriaClinicaService } from '../services/historia-clinica.service';
 
 @Component({
   selector: 'lib-ver-historias',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerHistoriasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private historiaServicio : HistoriaClinicaService) { }
 
   ngOnInit(): void {
+    this.obtenerEnfermedades();
   }
 
+  public historias: Array<Historia> = new Array();
+  @Input() update: boolean | undefined;
+ 
+  ngOnChanges(changes: SimpleChanges) {
+     this.obtenerEnfermedades();
+  }
+
+
+  async obtenerEnfermedades():Promise<void>{
+    this.historias=await lastValueFrom(this.historiaServicio.obtenerHistorias());
+  }
 }

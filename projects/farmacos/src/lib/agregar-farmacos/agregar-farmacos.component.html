@@ -1,0 +1,31 @@
+<p>agregar-farmacos works!</p>
+<div *ngIf="isExist">
+    <form [formGroup]="formBuilderFarmaco" (ngSubmit)="enviarDatos()">
+        <label for="prescripcion"> Prescripcion</label><br>
+        <textarea placeholder="describa las razones" formControlName="prescripcion" required></textarea><br>
+
+        <label for="duracion">duracion</label>
+        <input type="number" formControlName="duracion" placeholder="max 365 dias">Dias<br>
+
+        <label>Fecha de creacion.</label>
+        <input type="date" formControlName="fecha"> <br>
+        
+        <label for="medicos">Medicos</label>
+        <select formControlName="medico">
+            <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>
+        </select>
+        <div formArrayName="medicamentos"
+        *ngFor="let enfermedad of medicamentos.controls; let i = index;">
+            <div [formGroupName]="i">
+                <select formControlName="id">
+                    <option *ngFor="let item of listMedicamentos" [ngValue]="item.id" >{{item.id}}-{{item.nombre}}-{{item.dosis}}</option>
+                </select>
+                <button (click)="removeMedicamento(i)">Quitar Medicamento</button>   
+            </div>
+        </div>
+        <p>
+            <button type="button" (click)="addMedicamento()">Agregar Medicamento</button>
+        </p>
+          <button [disabled]="formBuilderFarmaco.invalid">Enviar</button>
+    </form>
+</div>

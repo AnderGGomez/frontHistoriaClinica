@@ -1,0 +1,53 @@
+<p>consultar-farmacos works!</p>
+<div class="card">
+    <p-table responsiveLayout="stack" [value]="farmacos">
+        <ng-template pTemplate="caption">
+            Farmacos
+            <button (click)="addFarmaco(historia_id)">Agregar Ant Farmacos.</button>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+                <th>
+                    Medico
+                </th>
+                <th>
+                    Medicamentos
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-farmacos let-columns="columns">
+            <tr>
+                <td *ngFor="let col of cols">
+                    <span class="p-column-title">{{col.header}}</span>{{farmacos[col.field]}}
+                </td>
+                <td>
+                    <span class="p-column-title">Medico</span>
+                    Nombre: {{farmacos.medico.nombre}} {{farmacos.medico.segundoNombre}}
+                    {{farmacos.medico.primerApellido}} {{farmacos.medico.segundoApellido}} <br>
+                    Registro:{{farmacos.medico.identificacion}} <br>
+                    Especialidad:{{farmacos.medico.especialidad}} <br>
+                </td>
+                <td>
+                    <span class="p-column-title">Medicamentos</span>
+                    <ng-container *ngFor="let medicamento of farmacos.medicamentos">
+                        Nombre: {{medicamento.nombre}} <br>
+                        Marca:   {{medicamento.marca}} <br>
+                        Dosis:   {{medicamento.dosis}} <br>  <br>
+                    </ng-container>
+                </td>
+                <td>
+                    <button (click)="editarFarmaco(farmacos.id)">Editar Farmaco.</button>
+                    
+                    <button (click)="eliminarFarmaco(farmacos.id)">Eliminar Farmaco.</button>
+                </td>
+            </tr>
+        </ng-template>
+        
+    </p-table>
+</div>

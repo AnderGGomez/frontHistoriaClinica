@@ -44,7 +44,11 @@
       "@utp/pacientes": [
         "dist/pacientes/pacientes",
         "dist/pacientes"
-      ]
+      ],
+      "@utp/farmacos": [
+        "dist/farmacos/farmacos",
+        "dist/farmacos"
+      ],
     },
     "target": "es2017",
     "module": "es2020",

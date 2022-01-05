@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'nacimientos',
     loadChildren: ()=> import('@utp/nacimientos').then((mod) => mod.NacimientosModule)
   },
+  {
+    path: 'farmacos',
+    loadChildren: ()=> import('@utp/farmacos').then((mod) => mod.FarmacosModule)
+  },
 ];
 
 @NgModule({

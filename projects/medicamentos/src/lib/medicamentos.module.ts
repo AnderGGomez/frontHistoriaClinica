@@ -9,6 +9,7 @@ import { VerMedicamentosComponent } from './ver-medicamentos/ver-medicamentos.co
 import { EliminarMedicamentoComponent } from './eliminar-medicamento/eliminar-medicamento.component';
 import { ConsultarMedicamentoComponent } from './consultar-medicamento/consultar-medicamento.component';
 import { EditarMedicamentoComponent } from './editar-medicamento/editar-medicamento.component';
+import { MedicamentosService } from './services/medicamentos.service';
 
 
 
@@ -34,6 +35,9 @@ import { EditarMedicamentoComponent } from './editar-medicamento/editar-medicame
     EliminarMedicamentoComponent,
     ConsultarMedicamentoComponent,
     EditarMedicamentoComponent
+  ],
+  providers:[
+    MedicamentosService
   ]
 })
 export class MedicamentosModule { }

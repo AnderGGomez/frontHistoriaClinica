@@ -14,6 +14,7 @@ import { PacientesModule } from 'dist/pacientes/';
 import { HerenciasModule } from 'dist/herencias/';
 import { HistoriaClinicaService } from './services/historia-clinica.service';
 import { NacimientosModule } from 'dist/nacimientos/';
+import { FarmacosModule } from '@utp/farmacos';
 
 
 
@@ -33,7 +34,8 @@ import { NacimientosModule } from 'dist/nacimientos/';
     ReactiveFormsModule,
     PacientesModule,
     HerenciasModule,
-    NacimientosModule
+    NacimientosModule,
+    FarmacosModule
   ],
   exports: [
     AgregarHistoriaComponent,

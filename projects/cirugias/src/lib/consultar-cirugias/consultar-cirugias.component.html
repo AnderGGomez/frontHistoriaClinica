@@ -1,0 +1,42 @@
+<p>consultar-cirugias works!</p>
+<div class="card">
+    <p-table responsiveLayout="stack" [value]="cirugias">
+        <ng-template pTemplate="caption">
+            Cirugia
+            <button (click)="addCirugia(historia_id)">Agregar cirugia.</button>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+                <th>
+                    Medico
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cirugias let-columns="columns">
+            <tr>
+                <td *ngFor="let col of cols">
+                    <span class="p-column-title">{{col.header}}</span>{{cirugias[col.field]}}
+                </td>
+                <td>
+                    <span class="p-column-title">Medico</span>
+                    Nombre: {{cirugias.medico.nombre}} {{cirugias.medico.segundoNombre}}
+                    {{cirugias.medico.primerApellido}} {{cirugias.medico.segundoApellido}} <br>
+                    Registro:{{cirugias.medico.identificacion}} <br>
+                    Especialidad:{{cirugias.medico.especialidad}} <br>
+                </td>
+                <td>
+                    <button (click)="editarCirugia(cirugias.id)">Editar cirugia.</button>
+                    
+                    <button (click)="eliminarCirugia(cirugias.id)">Eliminar cirugia.</button>
+                </td>
+            </tr>
+        </ng-template>
+        
+    </p-table>
+</div>

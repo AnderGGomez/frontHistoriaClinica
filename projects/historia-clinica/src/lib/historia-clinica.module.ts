@@ -16,6 +16,7 @@ import { HistoriaClinicaService } from './services/historia-clinica.service';
 import { NacimientosModule } from 'dist/nacimientos/';
 import { FarmacosModule } from '@utp/farmacos';
 import { PersonalesModule} from '@utp/personales';
+import { CirugiasModule } from '@utp/cirugias';
 
 
 
@@ -38,6 +39,7 @@ import { PersonalesModule} from '@utp/personales';
     NacimientosModule,
     FarmacosModule,
     PersonalesModule,
+    CirugiasModule,
   ],
   exports: [
     AgregarHistoriaComponent,

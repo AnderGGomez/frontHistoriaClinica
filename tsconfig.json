@@ -53,6 +53,10 @@
         "dist/personales/personales",
         "dist/personales"
       ],
+      "@utp/cirugias": [
+        "dist/cirugias/cirugias",
+        "dist/cirugias"
+      ],
     },
     "target": "es2017",
     "module": "es2020",

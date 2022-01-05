@@ -382,6 +382,37 @@
           }
         }
       }
+    },
+    "cirugias": {
+      "projectType": "library",
+      "root": "projects/cirugias",
+      "sourceRoot": "projects/cirugias/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cirugias/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cirugias/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cirugias/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cirugias/src/test.ts",
+            "tsConfig": "projects/cirugias/tsconfig.spec.json",
+            "karmaConfig": "projects/cirugias/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "pacientes"

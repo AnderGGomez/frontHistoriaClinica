@@ -22,7 +22,6 @@ export class EditarHerenciaComponent implements OnInit {
   public listEnfermedades : Array<any> = new Array;
   public medicos : Array<Medico> = new Array;
   public sended: boolean = false;
-  public update: boolean = true;
 
   constructor(
     private herenciaServicio: HerenciasService,

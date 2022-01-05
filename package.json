@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@utp/cirugias": "file:dist/cirugias",
     "@utp/enfermedades": "file:dist/enfermedades",
     "@utp/farmacos": "file:dist/farmacos",
     "@utp/herencias": "file:dist/herencias",

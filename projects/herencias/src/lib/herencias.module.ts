@@ -11,8 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect'
 import { ListboxModule} from 'primeng/listbox';
-import { MedicosModule } from 'dist/medicos/';
-import { EnfermedadesModule } from 'dist/enfermedades/';
+import { MedicosModule } from '@utp/medicos';
+import { EnfermedadesModule } from '@utp/enfermedades';
+import { HerenciasService } from './services/herencias.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { EnfermedadesModule } from 'dist/enfermedades/';
     EliminarHerenciaComponent,
     ConsultarHerenciaComponent,
   ],
-  
+  providers:[
+    HerenciasService,
+  ]
 })
 export class HerenciasModule { }

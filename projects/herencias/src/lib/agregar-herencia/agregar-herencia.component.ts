@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { HerenciasService } from '../services/herencias.service';
-import { MedicosService } from 'dist/medicos/';
+import { MedicosService } from '@utp/medicos';
 import { lastValueFrom } from 'rxjs';
 import { Herencia } from '../model/herencia';
 import { HistoriaClinicaService } from '../services/historia-clinica.service';
-import { EnfermedadesService } from 'dist/enfermedades/';
+import { EnfermedadesService } from '@utp/enfermedades';
 
 @Component({
   selector: 'lib-agregar-herencia',

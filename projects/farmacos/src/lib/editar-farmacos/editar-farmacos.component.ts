@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MedicosService } from 'dist/medicos/';
+import { MedicosService } from '@utp/medicos';
 import { lastValueFrom } from 'rxjs';
 import { Medico } from '../model/medico';
 import { Farmaco } from '../model/farmaco';
 import { FarmacosService } from '../services/farmacos.service';
-import { MedicamentosService } from '@utp/medicamentos/';
+import { MedicamentosService } from '@utp/medicamentos';
 
 
 @Component({

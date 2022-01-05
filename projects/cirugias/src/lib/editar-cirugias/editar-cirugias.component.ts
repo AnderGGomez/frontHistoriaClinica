@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CirugiasService } from '../services/cirugias.service';
-import { MedicosService } from 'dist/medicos/';
+import { MedicosService } from '@utp/medicos';
 import { lastValueFrom } from 'rxjs';
 import { Cirugia } from '../model/cirugia';
 

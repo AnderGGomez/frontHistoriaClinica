@@ -9,7 +9,7 @@ import { ConsultarEnfermedadComponent } from './consultar-enfermedad/consultar-e
 import { EliminarEnfermedadComponent } from './eliminar-enfermedad/eliminar-enfermedad.component';
 import { VerEnfermedadesComponent } from './ver-enfermedades/ver-enfermedades.component';
 import { EditarEnfermedadComponent } from './editar-enfermedad/editar-enfermedad.component';
-
+import { EnfermedadesService } from './services/enfermedades.service';
 
 
 @NgModule({
@@ -33,6 +33,9 @@ import { EditarEnfermedadComponent } from './editar-enfermedad/editar-enfermedad
     EliminarEnfermedadComponent,
     VerEnfermedadesComponent,
     EditarEnfermedadComponent
+  ],
+  providers: [
+    EnfermedadesService,
   ]
 })
 export class EnfermedadesModule { }

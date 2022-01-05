@@ -5,14 +5,15 @@ import { EliminarFarmacosComponent } from './eliminar-farmacos/eliminar-farmacos
 import { EditarFarmacosComponent } from './editar-farmacos/editar-farmacos.component';
 import { FarmacosRoutingModule } from './farmacos-routing.module';
 import { CommonModule } from '@angular/common';
-import { MedicosModule } from 'dist/medicos/';
-import { MedicamentosModule } from 'dist/medicamentos/';
+import { MedicosModule } from '@utp/medicos';
+import { MedicamentosModule } from '@utp/medicamentos';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ListboxModule } from 'primeng/listbox';
+import { FarmacosService } from './services/farmacos.service';
 
 
 
@@ -41,6 +42,9 @@ import { ListboxModule } from 'primeng/listbox';
     ConsultarFarmacosComponent,
     EliminarFarmacosComponent,
     EditarFarmacosComponent
+  ],
+  providers: [
+    FarmacosService,
   ]
 })
 export class FarmacosModule { }

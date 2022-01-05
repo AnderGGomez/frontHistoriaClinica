@@ -10,7 +10,6 @@ import { ConsultarPacienteComponent } from './consultar-paciente/consultar-pacie
 import { TableModule } from 'primeng/table';
 import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
 import { PacientesService } from './services/pacientes.service'
-import { Paciente } from './model/paciente';
 
 
 @NgModule({

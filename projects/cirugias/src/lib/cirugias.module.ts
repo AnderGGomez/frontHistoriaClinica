@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect'
 import { ListboxModule} from 'primeng/listbox';
-import { MedicosModule } from '@utp/medicos/';
+import { MedicosModule } from '@utp/medicos';
 
 
 @NgModule({

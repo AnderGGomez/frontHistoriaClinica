@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
+import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 @Component({
   selector: 'lib-join-historia',
   templateUrl: './join-historia.component.html',

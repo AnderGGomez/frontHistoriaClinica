@@ -5,14 +5,15 @@ import { EliminarNacimientoComponent } from './eliminar-nacimiento/eliminar-naci
 import { EditarNacimientoComponent } from './editar-nacimiento/editar-nacimiento.component';
 import { NacimientosRoutingModule } from './nacimientos-routing.module';
 import { CommonModule } from '@angular/common';
-import { MedicosModule } from 'dist/medicos/';
-import { EnfermedadesModule } from 'dist/enfermedades/';
+import { MedicosModule } from '@utp/medicos';
+import { EnfermedadesModule } from '@utp/enfermedades';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect'
 import { ListboxModule} from 'primeng/listbox';
+import { NacimientosService } from './services/nacimientos.service';
 
 
 
@@ -41,6 +42,9 @@ import { ListboxModule} from 'primeng/listbox';
     ConsultarNacimientoComponent,
     EliminarNacimientoComponent,
     EditarNacimientoComponent
+  ],
+  providers:[
+    NacimientosService
   ]
 })
 export class NacimientosModule { }

@@ -5,8 +5,8 @@ import { Herencia } from '../model/herencia';
 import { HerenciasService } from '../services/herencias.service';
 import { FormArray } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EnfermedadesService } from 'dist/enfermedades/';
-import { MedicosService } from 'dist/medicos/';
+import { EnfermedadesService } from '@utp/enfermedades';
+import { MedicosService } from '@utp/medicos';
 import { Medico } from '../model/medico';
 
 @Component({

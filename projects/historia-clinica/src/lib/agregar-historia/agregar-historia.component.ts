@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Paciente, PacientesService } from 'dist/pacientes/';
+import { PacientesService } from '@utp/pacientes';
 import { lastValueFrom } from 'rxjs';
 import { Historia } from '../model/historia';
 import { HistoriaClinicaService } from '../services/historia-clinica.service';
+import { Paciente } from '../model/paciente';
 
 @Component({
   selector: 'lib-agregar-historia',

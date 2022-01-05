@@ -1,4 +1,4 @@
-import { Paciente } from "dist/pacientes/";
+import { Paciente } from './paciente';
 
 
 export class Historia{

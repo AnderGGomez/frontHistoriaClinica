@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PersonalesService } from '../services/personales.service';
-import { MedicosService } from '@utp/medicos/';
+import { MedicosService } from '@utp/medicos';
 import { lastValueFrom } from 'rxjs';
 import { Personal } from '../model/personal';
 import { HistoriaClinicaService } from '../services/historia-clinica.service';
-import { EnfermedadesService } from '@utp/enfermedades/';
+import { EnfermedadesService } from '@utp/enfermedades';
 
 
 @Component({

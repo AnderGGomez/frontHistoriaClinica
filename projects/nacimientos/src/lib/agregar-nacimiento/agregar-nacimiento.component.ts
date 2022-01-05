@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EnfermedadesService } from 'dist/enfermedades/';
-import { MedicosService } from 'dist/medicos/';
+import { EnfermedadesService } from '@utp/enfermedades';
+import { MedicosService } from '@utp/medicos';
 import { lastValueFrom } from 'rxjs';
 import { Medico } from '../model/medico';
 import { Nacimiento } from '../model/nacimiento';

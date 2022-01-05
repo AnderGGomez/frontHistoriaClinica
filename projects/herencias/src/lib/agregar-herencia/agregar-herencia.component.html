@@ -34,6 +34,6 @@
         <p>
             <button type="button" (click)="addEnfermedad()">Add</button>
         </p>
-          <button [disabled]="formBuilderHerencia.invalid && (formBuilderHerencia.get('medico')?.value == null)">Enviar</button>
+          <button [disabled]="formBuilderHerencia.invalid">Enviar</button>
     </form>
 </div>

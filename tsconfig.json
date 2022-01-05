@@ -49,6 +49,10 @@
         "dist/farmacos/farmacos",
         "dist/farmacos"
       ],
+      "@utp/personales": [
+        "dist/personales/personales",
+        "dist/personales"
+      ],
     },
     "target": "es2017",
     "module": "es2020",

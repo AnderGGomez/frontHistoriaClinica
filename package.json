@@ -26,6 +26,7 @@
     "@utp/medicamentos": "file:dist/medicamentos",
     "@utp/medicos": "file:dist/medicos",
     "@utp/pacientes": "file:dist/pacientes",
+    "@utp/personales": "file:dist/personales",
     "primeicons": "^5.0.0",
     "primeng": "^13.0.4",
     "rxjs": "~7.4.0",

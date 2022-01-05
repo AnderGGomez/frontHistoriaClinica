@@ -10,11 +10,12 @@ import { EditarHistoriaComponent} from './editar-historia/editar-historia.compon
 import { VerHistoriasComponent} from './ver-historias/ver-historias.component';
 import { JoinHistoriaComponent} from './join-historia/join-historia.component';
 import { ConsultarHistoriaComponent} from './consultar-historia/consultar-historia.component';
-import { PacientesModule } from 'dist/pacientes/';
-import { HerenciasModule } from 'dist/herencias/';
+import { PacientesModule } from '@utp/pacientes/';
+import { HerenciasModule } from '@utp/herencias/';
 import { HistoriaClinicaService } from './services/historia-clinica.service';
 import { NacimientosModule } from 'dist/nacimientos/';
 import { FarmacosModule } from '@utp/farmacos';
+import { PersonalesModule} from '@utp/personales';
 
 
 
@@ -35,7 +36,8 @@ import { FarmacosModule } from '@utp/farmacos';
     PacientesModule,
     HerenciasModule,
     NacimientosModule,
-    FarmacosModule
+    FarmacosModule,
+    PersonalesModule,
   ],
   exports: [
     AgregarHistoriaComponent,

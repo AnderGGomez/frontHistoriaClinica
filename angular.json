@@ -351,6 +351,37 @@
           }
         }
       }
+    },
+    "personales": {
+      "projectType": "library",
+      "root": "projects/personales",
+      "sourceRoot": "projects/personales/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/personales/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/personales/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/personales/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/personales/src/test.ts",
+            "tsConfig": "projects/personales/tsconfig.spec.json",
+            "karmaConfig": "projects/personales/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "pacientes"

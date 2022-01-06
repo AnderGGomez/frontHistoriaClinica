@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
 
 ## Puesta en marcha.
-construya las librerias con el comando ng b (nombre_de_libreria)
+construya las librerias con el comando: ng b (nombre_de_libreria)
 ##### nombres de las librerias
 pacientes
 medicos
@@ -16,7 +16,7 @@ farmacos
 personales
 historiaClinica
 
-instale las librerias en el siguiente orden con el comando npm i ./dist/(nombre_de_libreria)
+instale las librerias en el siguiente orden con el comando: npm i ./dist/(nombre_de_libreria)
 #### primero
 pacientes.
 medicos.

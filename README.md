@@ -2,6 +2,36 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
 
+## Puesta en marcha.
+construya las librerias con el comando: ng b (nombre_de_libreria)
+##### nombres de las librerias
+pacientes,
+medicos,
+enfermedades,
+medicamentos,
+herencias,
+nacimientos,
+cirugias,
+farmacos,
+personales,
+historiaClinica.
+
+instale las librerias en el siguiente orden con el comando: npm i ./dist/(nombre_de_libreria)
+#### primero
+pacientes,
+medicos,
+enfermedades,
+medicamentos,
+#### segundo
+herencias,
+nacimientos,
+cirugias,
+farmacos,
+personales,
+
+### tercero.
+historia-clinica,
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

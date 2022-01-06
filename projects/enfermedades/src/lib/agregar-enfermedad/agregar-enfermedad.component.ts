@@ -26,15 +26,14 @@ export class AgregarEnfermedadComponent implements OnInit {
   })
 
   async enviarDatos():Promise<void>{
-    let enfermedad: Enfermedad = new Enfermedad;
-    enfermedad.nombre =this.formEnfermedad.get("nombre")?.value;
-    enfermedad.tipo   =this.formEnfermedad.get("tipo")?.value;
-
-    this.formEnfermedad.reset()
     
-    let dataReturn = await lastValueFrom(this.enfermedadServicio.agregarEnfermedad(enfermedad))
-    console.log(dataReturn)
-    this.isAdded.emit(true);
+    let dataReturn = await lastValueFrom(this.enfermedadServicio.agregarEnfermedad(this.formEnfermedad.value));
+    if(dataReturn != null){
+      this.formEnfermedad.reset()
+      console.log(dataReturn)
+      this.isAdded.emit(true);
+    }
+    
   }
 
 }

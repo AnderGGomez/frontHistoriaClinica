@@ -1,5 +1,3 @@
-
-<p>agregar-paciente works!</p>
 <form [formGroup]="formPaciente" (ngSubmit)="enviarDatos()">
     <label>Nombre</label>
     <input formControlName="nombre"> <br>
@@ -18,11 +16,26 @@
     <label>Telefono</label>
     <input formControlName="telefono"> <br>
     <label>Sexo</label>
-    <input formControlName="sexo"> <br>
+    <select formControlName="sexo">
+        <option value="m">Masculino</option>
+        <option value="f">Femenino</option>
+    </select> <br>
     <label>Estado Civil</label>
-    <input formControlName="estadoCivil"> <br>
+    <select formControlName="estadoCivil">
+        <option value="soltero">Soltero/a</option>
+        <option value="casado">Casado/a</option>
+        <option value="union">Union Libre</option>
+        <option value="viudo">Viudo/a</option>
+    </select> <br>
     <label>Estrato</label>
-    <input formControlName="estrato"> <br>
+    <select formControlName="estrato">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select> <br>
     <label>Ocupacion</label>
     <input formControlName="ocupacion"> <br>
     <label>Etnia</label>

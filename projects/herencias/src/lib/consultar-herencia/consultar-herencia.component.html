@@ -3,13 +3,22 @@
 <div class="card">
     <p-table responsiveLayout="stack" [value]="herencias">
         <ng-template pTemplate="caption">
-            Herencia
-            <button (click)="addHerencia(historia_id)">Agregar Herencia.</button>
+           <p>Antecedentes Hereditarios  </p>
+           <p-button  label="New" icon="pi pi-plus" (onClick)="addHerencia(historia_id)"></p-button>     
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <th *ngFor="let col of cols">
-                    {{col.header}}
+                <th>
+                    Registro
+                </th>
+                <th>
+                    Parentesco
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Fecha del Registro
                 </th>
                 <th>
                     Medico
@@ -24,27 +33,40 @@
         </ng-template>
         <ng-template pTemplate="body" let-herencias let-columns="columns">
             <tr>
-                <td *ngFor="let col of cols">
-                    <span class="p-column-title">{{col.header}}</span>{{herencias[col.field]}}
+                <td>
+                    <span class="p-column-title">Registro :</span>
+                    {{ herencias.id }}
                 </td>
                 <td>
-                    <span class="p-column-title">Medico</span>
-                    Nombre: {{herencias.medico.nombre}} {{herencias.medico.segundoNombre}}
-                    {{herencias.medico.primerApellido}} {{herencias.medico.segundoApellido}} <br>
+                    <span class="p-column-title">Parentesco :</span>
+                    {{ herencias.parentesco }}
+                </td>
+                <td>
+                    <span class="p-column-title">Nombre :</span>
+                    <p>{{ herencias.nombre }} {{ herencias.segundoNombre }} {{ herencias.primerApellido }} {{ herencias.segundoApellido }}</p>
+                </td>
+                <td>
+                    <span class="p-column-title">Fecha del Registro :</span>
+                    <p>{{ herencias.fechaCreacion }}</p>
+                </td>
+                <td>
+                    <span class="p-column-title">Medico :</span>
+                    <p>
+                        {{herencias.medico.nombre}} {{herencias.medico.segundoNombre}} {{herencias.medico.primerApellido}} {{herencias.medico.segundoApellido}}
+                    </p>
                     Registro:{{herencias.medico.identificacion}} <br>
                     Especialidad:{{herencias.medico.especialidad}} <br>
                 </td>
                 <td>
-                    <span class="p-column-title">Enfermedades</span>
+                    <span class="p-column-title">Enfermedades :</span>
                     <ng-container *ngFor="let enfermedad of herencias.enfermedades">
                         Nombre: {{enfermedad.nombre}} <br>
                         Tipo:   {{enfermedad.tipo}} <br> <br>
                     </ng-container>
                 </td>
                 <td>
-                    <button (click)="editarHerencia(herencias.id)">Editar Herencia.</button>
-                    
-                    <button (click)="eliminarHerencia(herencias.id)">Eliminar Herencia.</button>
+                    <p-button icon="pi pi-refresh" styleClass="p-button-refresh" (onClick)="editarHerencia(herencias.id)"></p-button>
+                    <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="eliminarHerencia(herencias.id)"></p-button>
                 </td>
             </tr>
         </ng-template>

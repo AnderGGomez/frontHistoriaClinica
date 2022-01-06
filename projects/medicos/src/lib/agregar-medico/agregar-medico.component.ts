@@ -10,10 +10,10 @@ import { MedicosService } from '../services/medicos.service';
   styleUrls: ['./agregar-medico.component.css']
 })
 export class AgregarMedicoComponent implements OnInit {
-
   constructor(
     private medicoServicio: MedicosService
-  ) { }
+  ) { 
+  }
 
   ngOnInit(): void {
   }
@@ -35,28 +35,12 @@ export class AgregarMedicoComponent implements OnInit {
     ips             : new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z\\s]*')]),
   })
 
-
   async enviarDatos():Promise<void>{
-    let medico : Medico = new Medico;
-    medico.nombre           =this.formMedico.get("nombre")?.value;
-    medico.segundoNombre    =this.formMedico.get("segundoNombre")?.value;
-    medico.primerApellido   =this.formMedico.get("primerApellido")?.value;
-    medico.segundoApellido  =this.formMedico.get("segundoApellido")?.value;
-    medico.identificacion   =this.formMedico.get("identificacion")?.value;
-    medico.fechaNacimiento  =this.formMedico.get("fechaNacimiento")?.value;
-    medico.email            =this.formMedico.get("email")?.value;
-    medico.telefono         =this.formMedico.get("telefono")?.value;
-    medico.sexo             =this.formMedico.get("sexo")?.value;
-    medico.especialidad     =this.formMedico.get("especialidad")?.value;
-    medico.cargo            =this.formMedico.get("cargo")?.value;
-    medico.ips              =this.formMedico.get("ips")?.value;
-    this.formMedico.reset()
-    let dataReturn: Medico = new Medico;
-
-    dataReturn = await lastValueFrom(this.medicoServicio.agregarMedico(medico))
-    this.isAdded.emit(true);
-    console.log(dataReturn);
-
+    let dataReturn = await lastValueFrom(this.medicoServicio.agregarMedico(this.formMedico.value))
+    if(dataReturn != null){
+      this.formMedico.reset();
+      this.isAdded.emit(true);
+    }
   }
 
 }

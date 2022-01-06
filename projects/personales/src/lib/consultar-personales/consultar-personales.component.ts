@@ -13,17 +13,18 @@ import { PersonalesService } from '../services/personales.service';
 })
 export class ConsultarPersonalesComponent implements OnInit {
 
-  cols: any[] | undefined;
-  
+  cols: any[] =[];
+
   constructor(
     private personalServicio : PersonalesService,
     private router : Router,
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit(): void {
-
     this.cols = [
-      { field: 'id',              header: 'Identificacion' },
+      { field: 'id',              header: 'Registro' },
       { field: 'descripcion',     header: 'Descripcion' },
       { field: 'estado',          header: 'Estado' },
       { field: 'fecha',           header: 'Fecha' },
@@ -39,10 +40,10 @@ export class ConsultarPersonalesComponent implements OnInit {
   })
 
   ngOnChanges():void{
-    this.buscarHerencias(this.historia_id)
+    this.buscarPersonal(this.historia_id);
   }
 
-  async buscarHerencias(historia_id:number|undefined):Promise<void>{
+  async buscarPersonal(historia_id:number|undefined):Promise<void>{
     if(historia_id != undefined){
       this.personales = await lastValueFrom(this.personalServicio.obtenerPersonalByHistoria(historia_id));
       console.log(this.personales)
@@ -50,15 +51,15 @@ export class ConsultarPersonalesComponent implements OnInit {
     }
   }
 
-  editarHerencia(pk:number):void{
+  editarPersonal(pk:number):void{
     this.router.navigate(['historia-clinica/personales/edit-personales',pk])
   }
 
-  eliminarHerencia(pk:number):void{
+  eliminarPersonal(pk:number):void{
     this.router.navigate(['historia-clinica/personales/del-personales',pk])
   }
 
-  addHerencia(pkHistory:number | undefined):void{
+  addPersonal(pkHistory:number | undefined):void{
     this.router.navigate(['historia-clinica/personales/add-personales',pkHistory])
   }
 

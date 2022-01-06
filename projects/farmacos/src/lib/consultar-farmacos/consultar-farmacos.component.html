@@ -2,8 +2,8 @@
 <div class="card">
     <p-table responsiveLayout="stack" [value]="farmacos">
         <ng-template pTemplate="caption">
-            Farmacos
-            <button (click)="addFarmaco(historia_id)">Agregar Ant Farmacos.</button>
+           <p>Antecedentes Farmacologicos  </p>
+           <p-button  label="New" icon="pi pi-plus" (onClick)="addFarmaco(historia_id)"></p-button>      
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
@@ -42,9 +42,8 @@
                     </ng-container>
                 </td>
                 <td>
-                    <button (click)="editarFarmaco(farmacos.id)">Editar Farmaco.</button>
-                    
-                    <button (click)="eliminarFarmaco(farmacos.id)">Eliminar Farmaco.</button>
+                    <p-button icon="pi pi-refresh" styleClass="p-button-refresh" (onClick)="editarFarmaco(farmacos.id)"></p-button>
+                    <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="eliminarFarmaco(farmacos.id)"></p-button>
                 </td>
             </tr>
         </ng-template>

@@ -1,9 +1,8 @@
-<p>consultar-personales works!</p>
 <div class="card">
     <p-table responsiveLayout="stack" [value]="personales">
-        <ng-template pTemplate="caption">
-            Antecedentes Personales
-            <button (click)="addHerencia(historia_id)">Agregar Antecedente.</button>
+        <ng-template pTemplate="caption"> 
+            <p>Antecedentes Personales  </p>   
+            <p-button  label="New" icon="pi pi-plus" (onClick)="addPersonal(historia_id)"></p-button>   
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
@@ -21,29 +20,28 @@
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-herencias let-columns="columns">
+        <ng-template pTemplate="body" let-personales let-columns="columns">
             <tr>
                 <td *ngFor="let col of cols">
-                    <span class="p-column-title">{{col.header+":"}}</span>{{herencias[col.field]}}
+                    <span class="p-column-title">{{col.header+":"}}</span>{{personales[col.field]}}
                 </td>
                 <td>
                     <span class="p-column-title">Medico</span>
-                    Nombre: {{herencias.medico.nombre}} {{herencias.medico.segundoNombre}}
-                    {{herencias.medico.primerApellido}} {{herencias.medico.segundoApellido}} <br>
-                    Registro:{{herencias.medico.identificacion}} <br>
-                    Especialidad:{{herencias.medico.especialidad}} <br>
+                    Nombre: {{personales.medico.nombre}} {{personales.medico.segundoNombre}}
+                    {{personales.medico.primerApellido}} {{personales.medico.segundoApellido}} <br>
+                    Registro:{{personales.medico.identificacion}} <br>
+                    Especialidad:{{personales.medico.especialidad}} <br>
                 </td>
                 <td>
                     <span class="p-column-title">Enfermedades</span>
-                    <ng-container *ngFor="let enfermedad of herencias.enfermedades">
+                    <ng-container *ngFor="let enfermedad of personales.enfermedades">
                         Nombre: {{enfermedad.nombre}} <br>
                         Tipo:   {{enfermedad.tipo}} <br> <br>
                     </ng-container>
                 </td>
                 <td>
-                    <button (click)="editarHerencia(herencias.id)">Editar Antecedente.</button>
-                    
-                    <button (click)="eliminarHerencia(herencias.id)">Eliminar Antecedente.</button>
+                    <p-button icon="pi pi-refresh" styleClass="p-button-refresh" (onClick)="editarPersonal(personales.id)"></p-button>
+                    <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="eliminarPersonal(personales.id)"></p-button>
                 </td>
             </tr>
         </ng-template>

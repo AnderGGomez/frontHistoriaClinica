@@ -26,7 +26,7 @@ export class ConsultarCirugiasComponent implements OnInit {
       { field: 'fechaProcedimiento',  header: 'Fecha Procedimiento' },
       { field: 'procedimiento',       header: 'Procedimiento' },
       { field: 'descripcion',         header: 'Descripcion' },
-
+      { field: 'fechaCreacion',       header: 'Fecha del Registro' },
     ];
   }
 

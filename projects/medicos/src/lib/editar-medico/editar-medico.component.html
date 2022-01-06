@@ -20,13 +20,16 @@
         <label>Identificacion</label>
         <input formControlName="identificacion"> <br>
         <label>Fecha de nacimiento.</label>
-        <input type="date" formControlName="fechaNacimiento"> <br>
+        <input type="date" formControlName="fechaNacimiento" max="2013-01-01"> <br>
         <label>Email</label>
         <input formControlName="email"> <br>
         <label>Telefono</label>
         <input formControlName="telefono"> <br>
         <label>Sexo</label>
-        <input formControlName="sexo"> <br>
+        <select formControlName="sexo">
+            <option value="m">Masculino</option>
+            <option value="f">Femenino</option>
+        </select> <br>
         <label>Especialidad</label>
         <input formControlName="especialidad"> <br>
         <label>Cargo</label>

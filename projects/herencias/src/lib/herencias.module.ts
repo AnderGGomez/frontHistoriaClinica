@@ -14,6 +14,8 @@ import { ListboxModule} from 'primeng/listbox';
 import { MedicosModule } from '@utp/medicos';
 import { EnfermedadesModule } from '@utp/enfermedades';
 import { HerenciasService } from './services/herencias.service';
+import {ButtonModule} from 'primeng/button';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { HerenciasService } from './services/herencias.service';
     SelectButtonModule,
     MultiSelectModule,
     ListboxModule,
+    ButtonModule,
+    SplitButtonModule,
   ],
   exports: [
     AgregarHerenciaComponent,

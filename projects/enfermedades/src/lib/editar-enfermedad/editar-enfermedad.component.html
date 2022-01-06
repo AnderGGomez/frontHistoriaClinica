@@ -13,7 +13,22 @@
         <label for="nombre">Nombre</label>
         <input formControlName="nombre"> <br>
         <label for="tipo">Tipo</label>
-        <input formControlName="tipo"> <br>
+        <select formControlName="tipo">
+            <option value="oncologicas">oncológicas</option>
+            <option value="infecciosa">infecciosa</option>
+            <option value="parasitarias">parasitarias</option>
+            <option value="sanguinea">sanguínea</option>
+            <option value="autoinmune">autoinmune</option>
+            <option value="endocrinas">endocrinas</option>
+            <option value="mental">mental</option>
+            <option value="oftalmológicas">oftalmológicas</option>
+            <option value="auditiva">auditiva</option>
+            <option value="cardiovasculares">cardiovasculares</option>
+            <option value="respiratorias">respiratorias</option>
+            <option value="digestivo">digestivo</option>
+            <option value="dermatologica">dermatologica</option>
+            <option value="congenitas">congenitas</option>
+        </select> <br>
         <button [disabled]="formEnfermedad.invalid">Enviar</button>
     </form>
 </div>

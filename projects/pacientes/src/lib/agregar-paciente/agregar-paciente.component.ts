@@ -32,7 +32,7 @@ export class AgregarPacienteComponent implements OnInit {
     telefono        : new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*')]),
     sexo            : new FormControl('',[Validators.required, Validators.maxLength(1), Validators.pattern('[a-zA-Z]*')]),
     estadoCivil     : new FormControl('',[Validators.required, Validators.minLength(7), Validators.maxLength(15), Validators.pattern('[a-zA-Z]*')]),
-    estrato         : new FormControl('',[Validators.required, Validators.pattern('[0-9]*'), Validators.maxLength(1)]),
+    estrato         : new FormControl('',[Validators.required, Validators.pattern('[0-6]'), Validators.maxLength(1)]),
     ocupacion       : new FormControl('',[Validators.required, Validators.minLength(4), Validators.maxLength(30), Validators.pattern('[a-zA-Z]*')]),
     etnia           : new FormControl('No aplica',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z\\s]*')]),
     discapacidad    : new FormControl('No aplica',[Validators.required, Validators.minLength(3), Validators.maxLength(15), Validators.pattern('^[a-zA-Z\\s]*')]),
@@ -40,6 +40,10 @@ export class AgregarPacienteComponent implements OnInit {
     religion        : new FormControl('No profesa',[Validators.required, Validators.minLength(7), Validators.maxLength(20), Validators.pattern('[a-zA-Z\\s]*')]),
   })
 
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
+  }
 
   async enviarDatos():Promise<void>{
     let paciente : Paciente = new Paciente;

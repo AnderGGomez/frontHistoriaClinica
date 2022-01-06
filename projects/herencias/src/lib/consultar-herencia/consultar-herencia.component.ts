@@ -11,25 +11,12 @@ import { HerenciasService } from '../services/herencias.service';
   styleUrls: ['./consultar-herencia.component.css']
 })
 export class ConsultarHerenciaComponent implements OnInit {
-
-  cols: any[] | undefined;
-  
   constructor(
     private herenciaServicio : HerenciasService,
     private router : Router,
   ) { }
 
   ngOnInit(): void {
-
-    this.cols = [
-      { field: 'id',              header: 'Identificacion' },
-      { field: 'parentesco',      header: 'Parentesco' },
-      { field: 'nombre',          header: 'Nombre' },
-      { field: 'segundoNombre',   header: 'S. Nombre' },
-      { field: 'primerApellido',  header: 'Apellido' },
-      { field: 'segundoApellido', header: 'S. Apellido' },
-      { field: 'fechaCreacion',   header: 'Fecha Creacion' },
-    ];
   }
 
   public herencias  : Array<Herencia> = Array();

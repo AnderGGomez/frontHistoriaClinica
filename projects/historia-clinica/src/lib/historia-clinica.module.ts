@@ -16,7 +16,7 @@ import { NacimientosModule } from '@utp/nacimientos';
 import { FarmacosModule } from '@utp/farmacos';
 import { PersonalesModule} from '@utp/personales';
 import { CirugiasModule } from '@utp/cirugias';
-
+import {TabViewModule} from 'primeng/tabview';
 
 
 @NgModule({
@@ -33,6 +33,7 @@ import { CirugiasModule } from '@utp/cirugias';
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    TabViewModule,
     PacientesModule,
     HerenciasModule,
     NacimientosModule,

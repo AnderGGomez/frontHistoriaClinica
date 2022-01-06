@@ -1,26 +1,47 @@
 <p>join-historia works!</p>
 Works join
 
+<p-tabView>
+    <p-tabPanel header="Personales">
+        <lib-consultar-personales [historia_id]="pkHistoria">
 
-<lib-consultar-personales [historia_id]="pkHistoria">
+        </lib-consultar-personales>
+    </p-tabPanel>
 
-</lib-consultar-personales>
+    <p-tabPanel header="Nacimiento">
+        <lib-consultar-nacimiento [historia_id]="pkHistoria">
 
-<lib-consultar-nacimiento [historia_id]="pkHistoria">
+        </lib-consultar-nacimiento>
+    </p-tabPanel>
 
-</lib-consultar-nacimiento>
+    <p-tabPanel header="Quirúrgicos">
+        <lib-consultar-cirugias [historia_id]="pkHistoria">
 
-<lib-consultar-cirugias [historia_id]="pkHistoria">
+        </lib-consultar-cirugias>
+    </p-tabPanel>
+    
+    <p-tabPanel header="Farmacologicos">
+        <lib-consultar-farmacos [historia_id]="pkHistoria">
 
-</lib-consultar-cirugias>
+        </lib-consultar-farmacos>
+    </p-tabPanel>
+    
+    <p-tabPanel header="Hereditarios">
+        <lib-consultar-herencia [historia_id]="pkHistoria">
 
-<lib-consultar-farmacos [historia_id]="pkHistoria">
+        </lib-consultar-herencia>        
+    </p-tabPanel>
 
-</lib-consultar-farmacos>
+</p-tabView>
 
-<lib-consultar-herencia [historia_id]="pkHistoria">
 
-</lib-consultar-herencia>
+
+
+
+
+
+
+
 
 
 

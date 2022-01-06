@@ -3,8 +3,8 @@
 <div class="card">
     <p-table responsiveLayout="stack" [value]="nacimientos">
         <ng-template pTemplate="caption">
-            Nacimientos
-            <button (click)="addNacimiento(historia_id)">Agregar Nacimientos.</button>
+           <p>Antecedentes de Nacimiento</p>   
+           <p-button  label="New" icon="pi pi-plus" (onClick)="addNacimiento(historia_id)"></p-button>    
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
@@ -22,29 +22,29 @@
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-herencias let-columns="columns">
+        <ng-template pTemplate="body" let-nacimiento let-columns="columns">
             <tr>
                 <td *ngFor="let col of cols">
-                    <span class="p-column-title">{{col.header}}</span>{{herencias[col.field]}}
+                    <span class="p-column-title">{{col.header}}</span>{{nacimiento[col.field]}}
                 </td>
                 <td>
                     <span class="p-column-title">Medico</span>
-                    Nombre: {{herencias.medico.nombre}} {{herencias.medico.segundoNombre}}
-                    {{herencias.medico.primerApellido}} {{herencias.medico.segundoApellido}} <br>
-                    Registro:{{herencias.medico.identificacion}} <br>
-                    Especialidad:{{herencias.medico.especialidad}} <br>
+                    Nombre: {{nacimiento.medico.nombre}} {{nacimiento.medico.segundoNombre}}
+                    {{nacimiento.medico.primerApellido}} {{nacimiento.medico.segundoApellido}} <br>
+                    Registro:{{nacimiento.medico.identificacion}} <br>
+                    Especialidad:{{nacimiento.medico.especialidad}} <br>
                 </td>
                 <td>
                     <span class="p-column-title">Enfermedades</span>
-                    <ng-container *ngFor="let enfermedad of herencias.enfermedades">
+                    <ng-container *ngFor="let enfermedad of nacimiento.enfermedades">
                         Nombre: {{enfermedad.nombre}} <br>
                         Tipo:   {{enfermedad.tipo}} <br> <br>
                     </ng-container>
                 </td>
                 <td>
-                    <button (click)="editarNacimiento(herencias.id)">Editar Nacimiento.</button>
-                    
-                    <button (click)="eliminarNacimiento(herencias.id)">Eliminar Nacimiento.</button>
+                <td>
+                    <p-button icon="pi pi-refresh" styleClass="p-button-refresh" (onClick)="editarNacimiento(nacimiento.id)"></p-button>
+                    <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="eliminarNacimiento(nacimiento.id)"></p-button>
                 </td>
             </tr>
         </ng-template>

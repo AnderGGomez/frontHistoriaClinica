@@ -14,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ListboxModule} from 'primeng/listbox';
-
+import {ButtonModule} from 'primeng/button';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { ListboxModule} from 'primeng/listbox';
     SelectButtonModule,
     MultiSelectModule,
     ListboxModule,
+    ButtonModule,
+    SplitButtonModule,
   ],
   exports: [
     AgregarPersonalesComponent,

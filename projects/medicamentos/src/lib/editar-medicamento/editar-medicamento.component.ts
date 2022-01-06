@@ -11,7 +11,11 @@ import { MedicamentosService } from '../services/medicamentos.service';
   styleUrls: ['./editar-medicamento.component.css']
 })
 export class EditarMedicamentoComponent implements OnInit {
-  constructor(private medicamentoServicio: MedicamentosService) { }
+  dia : string | undefined;
+
+  constructor(private medicamentoServicio: MedicamentosService) {
+    this.dia = this.calculateDate();
+   }
 
   ngOnInit(): void {
   }
@@ -29,6 +33,11 @@ export class EditarMedicamentoComponent implements OnInit {
     presentacion    : new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z\\s]*'), Validators.minLength(4), Validators.maxLength(20)]),
     fechaCaducidad  : new FormControl('',[Validators.required]),
   })
+
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
+  }
 
   formQuery = new FormGroup({
     id : new FormControl('', [Validators.required, Validators.pattern('[0-9]+')])

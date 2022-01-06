@@ -52,43 +52,13 @@ export class EditarMedicoComponent implements OnInit {
   }
 
   updateForm(): void{
-    this.formMedico.patchValue({
-      id              :this.medico.id,
-      nombre          :this.medico.nombre,
-      segundoNombre   :this.medico.segundoNombre,
-      primerApellido  :this.medico.primerApellido,
-      segundoApellido :this.medico.segundoApellido,
-      identificacion  :this.medico.identificacion,
-      fechaNacimiento :this.medico.fechaNacimiento,
-      email           :this.medico.email,
-      telefono        :this.medico.telefono,
-      sexo            :this.medico.sexo,
-      especialidad    :this.medico.especialidad,
-      cargo           :this.medico.cargo,
-      ips             :this.medico.ips,
-    });
+    this.formMedico.patchValue(this.medico);
   }
 
   async enviarDatos():Promise<void>{
     let pk = this.formMedico.get("id")?.value;
-    let editMedico : Medico = new Medico;
-    editMedico.id               =this.formMedico.get("id")?.value,
-    editMedico.nombre           =this.formMedico.get("nombre")?.value;
-    editMedico.segundoNombre    =this.formMedico.get("segundoNombre")?.value;
-    editMedico.primerApellido   =this.formMedico.get("primerApellido")?.value;
-    editMedico.segundoApellido  =this.formMedico.get("segundoApellido")?.value;
-    editMedico.identificacion   =this.formMedico.get("identificacion")?.value;
-    editMedico.fechaNacimiento  =this.formMedico.get("fechaNacimiento")?.value;
-    editMedico.email            =this.formMedico.get("email")?.value;
-    editMedico.telefono         =this.formMedico.get("telefono")?.value;
-    editMedico.sexo             =this.formMedico.get("sexo")?.value;
-    editMedico.especialidad     =this.formMedico.get("especialidad")?.value;
-    editMedico.cargo            =this.formMedico.get("cargo")?.value;
-    editMedico.ips              =this.formMedico.get("ips")?.value;
-
-    
     let dataReturn: boolean | false;
-    dataReturn = await lastValueFrom(this.medicoServicio.editarMedico(pk, editMedico))
+    dataReturn = await lastValueFrom(this.medicoServicio.editarMedico(pk, this.formMedico.value))
     if(dataReturn){
       this.isEdit.emit(true);
       this.formMedico.reset();

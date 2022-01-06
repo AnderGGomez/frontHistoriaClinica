@@ -2,8 +2,8 @@
 <div class="card">
     <p-table responsiveLayout="stack" [value]="cirugias">
         <ng-template pTemplate="caption">
-            Cirugia
-            <button (click)="addCirugia(historia_id)">Agregar cirugia.</button>
+            <p-button  label="New" icon="pi pi-plus" (onClick)="addCirugia(historia_id)"></p-button>  
+           <p>Antecedentes Quirúrgicos  </p>     
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
@@ -25,15 +25,13 @@
                 </td>
                 <td>
                     <span class="p-column-title">Medico</span>
-                    Nombre: {{cirugias.medico.nombre}} {{cirugias.medico.segundoNombre}}
-                    {{cirugias.medico.primerApellido}} {{cirugias.medico.segundoApellido}} <br>
+                    <p> {{cirugias.medico.nombre}} {{cirugias.medico.segundoNombre}} {{cirugias.medico.primerApellido}} {{cirugias.medico.segundoApellido}} </p>
                     Registro:{{cirugias.medico.identificacion}} <br>
                     Especialidad:{{cirugias.medico.especialidad}} <br>
                 </td>
                 <td>
-                    <button (click)="editarCirugia(cirugias.id)">Editar cirugia.</button>
-                    
-                    <button (click)="eliminarCirugia(cirugias.id)">Eliminar cirugia.</button>
+                    <p-button icon="pi pi-refresh" styleClass="p-button-refresh" (onClick)="editarCirugia(cirugias.id)"></p-button>
+                    <p-button icon="pi pi-times" styleClass="p-button-danger" (onClick)="eliminarCirugia(cirugias.id)"></p-button>
                 </td>
             </tr>
         </ng-template>

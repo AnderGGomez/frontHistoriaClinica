@@ -24,8 +24,8 @@ export class EditarEnfermedadComponent implements OnInit {
 
   formEnfermedad = new FormGroup({
     id      : new FormControl(''),
-    nombre  : new FormControl('',[Validators.required, Validators.pattern('^[a-zA-Z\\s]*'), Validators.minLength(4), Validators.maxLength(15)]),
-    tipo    : new FormControl('',[Validators.required, Validators.pattern('^[a-zA-Z\\s]*'), Validators.minLength(4), Validators.maxLength(15)]),
+    nombre  : new FormControl('',[Validators.required, Validators.pattern('^[a-zA-Z\\s]*'), Validators.minLength(4), Validators.maxLength(30)]),
+    tipo    : new FormControl('',[Validators.required, Validators.pattern('^[a-zA-Z\\s]*'), Validators.minLength(4), Validators.maxLength(20)]),
   })
 
   formQuery = new FormGroup({
@@ -42,27 +42,15 @@ export class EditarEnfermedadComponent implements OnInit {
   }
 
   updateForm(): void{
-    this.formEnfermedad.patchValue({
-      id      :this.enfermedad.id,
-      nombre  :this.enfermedad.nombre,
-      tipo    :this.enfermedad.tipo,
-    })
+    this.formEnfermedad.patchValue(this.enfermedad)
   }
 
   async enviarDatos():Promise<void>{
     let pk = this.formEnfermedad.get("id")?.value;
-    let editEnfermedad: Enfermedad = new Enfermedad;
-
-    editEnfermedad.id     = this.formEnfermedad.get("id")?.value;
-    editEnfermedad.nombre = this.formEnfermedad.get("nombre")?.value;
-    editEnfermedad.tipo   = this.formEnfermedad.get("tipo")?.value;
-
-    this.formEnfermedad.reset();
-    this.sended=false;
-
-    let dataReturn = await lastValueFrom(this.enfermedadServicio.editarEnfermedad(pk, editEnfermedad));
-
+    let dataReturn = await lastValueFrom(this.enfermedadServicio.editarEnfermedad(pk, this.formEnfermedad.value));
     if(dataReturn){
+      this.formEnfermedad.reset();
+      this.sended=false;
       this.isEdit.emit(true);
     }
   }

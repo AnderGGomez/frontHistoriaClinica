@@ -14,7 +14,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ListboxModule } from 'primeng/listbox';
 import { FarmacosService } from './services/farmacos.service';
-
+import {ButtonModule} from 'primeng/button';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { FarmacosService } from './services/farmacos.service';
     SelectButtonModule,
     MultiSelectModule,
     ListboxModule,
+    ButtonModule,
+    SplitButtonModule,
   ],
   exports: [
     AgregarFarmacosComponent,

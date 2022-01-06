@@ -11,15 +11,20 @@
 <div *ngIf="sended">
     <form [formGroup]="formMedicamento" (ngSubmit)="enviarDatos()">
         <label for="nombre">Nombre:</label>
-        <input type="text" formControlName="nombre"><br>
-        <label for="marca"> Marca:</label>
-        <input type="text" formControlName="marca"><br>
-        <label for="dosis"> Dosis:</label>
-        <input type="text" formControlName="dosis"><br>
-        <label for="presentacion">Presentacion:</label>
-        <input type="text" formControlName="presentacion"><br>
-        <label for="fechaCaducidad">Fecha de caducidad:</label>
-        <input type="date" formControlName="fechaCaducidad"><br>
-        <button [disabled]="formMedicamento.invalid">Enviar</button>
+    <input type="text" formControlName="nombre"><br>
+    <label for="marca"> Marca:</label>
+    <input type="text" formControlName="marca"><br>
+    <label for="dosis"> Dosis:</label>
+    <input type="number" formControlName="dosis" placeholder="mg" min="1" max="5000"><br>
+    <label for="presentacion">Presentacion:</label>
+    <select formControlName="presentacion">
+        <option value="tabletas">Tabletas</option>
+        <option value="jarabe">Jarabe</option>
+        <option value="gel">Gel</option>
+        <option value="granular">Granular</option>
+    </select> <br>
+    <label for="fechaCaducidad">Fecha de caducidad:</label>
+    <input type="date" formControlName="fechaCaducidad" min={{dia}} max="2025-12-31"><br>
+    <button [disabled]="formMedicamento.invalid">Enviar</button>
     </form>
 </div>

@@ -13,7 +13,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { MultiSelectModule } from 'primeng/multiselect'
 import { ListboxModule} from 'primeng/listbox';
 import { MedicosModule } from '@utp/medicos';
-
+import {ButtonModule} from 'primeng/button';
+import {SplitButtonModule} from 'primeng/splitbutton';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { MedicosModule } from '@utp/medicos';
     SelectButtonModule,
     MultiSelectModule,
     ListboxModule,
+    ButtonModule,
+    SplitButtonModule,
   ],
   exports: [
     AgregarCirugiasComponent,

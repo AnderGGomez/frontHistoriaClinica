@@ -19,6 +19,7 @@ export class AgregarPacienteComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.dia = this.calculateDate();
   }
 
   @Output() isAdded = new EventEmitter<boolean>();
@@ -33,7 +34,7 @@ export class AgregarPacienteComponent implements OnInit {
     email           : new FormControl('',[Validators.required, Validators.email, Validators.maxLength(40)]),
     telefono        : new FormControl('',[Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('[0-9]*')]),
     sexo            : new FormControl('',[Validators.required, Validators.maxLength(1), Validators.pattern('[a-zA-Z]*')]),
-    estadoCivil     : new FormControl('',[Validators.required, Validators.minLength(7), Validators.maxLength(15), Validators.pattern('[a-zA-Z]*')]),
+    estadoCivil     : new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(15), Validators.pattern('[a-zA-Z]*')]),
     estrato         : new FormControl('',[Validators.required, Validators.pattern('[0-6]'), Validators.maxLength(1)]),
     ocupacion       : new FormControl('',[Validators.required, Validators.minLength(4), Validators.maxLength(30), Validators.pattern('[a-zA-Z]*')]),
     etnia           : new FormControl('No aplica',[Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z\\s]*')]),
@@ -48,6 +49,8 @@ export class AgregarPacienteComponent implements OnInit {
   }
 
   async enviarDatos():Promise<void>{
+    console.log(this.formPaciente)
+    /*
     let paciente : Paciente = new Paciente;
     paciente.nombre=this.formPaciente.get("nombre")?.value;
     paciente.segundoNombre=this.formPaciente.get("segundoNombre")?.value;
@@ -73,7 +76,7 @@ export class AgregarPacienteComponent implements OnInit {
     if(dataReturn != null){
       this.isAdded.emit(true);
       console.log(dataReturn);
-    }
+    }*/
     
 
   }

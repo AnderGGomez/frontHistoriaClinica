@@ -5,32 +5,32 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Puesta en marcha.
 construya las librerias con el comando: ng b (nombre_de_libreria)
 ##### nombres de las librerias
-pacientes
-medicos
-enfermedades
-medicamentos
-herencias
-nacimientos
-cirugias
-farmacos
-personales
-historiaClinica
+pacientes,
+medicos,
+enfermedades,
+medicamentos,
+herencias,
+nacimientos,
+cirugias,
+farmacos,
+personales,
+historiaClinica.
 
 instale las librerias en el siguiente orden con el comando: npm i ./dist/(nombre_de_libreria)
 #### primero
-pacientes.
-medicos.
-enfermedades.
-medicamentos.
+pacientes,
+medicos,
+enfermedades,
+medicamentos,
 #### segundo
-herencias
-nacimientos
-cirugias
-farmacos
-personales
+herencias,
+nacimientos,
+cirugias,
+farmacos,
+personales,
 
 ### tercero.
-historia-clinica
+historia-clinica,
 
 ## Development server
 

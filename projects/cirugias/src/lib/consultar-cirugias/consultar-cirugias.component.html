@@ -1,9 +1,9 @@
-<p>consultar-cirugias works!</p>
+
 <div class="card">
     <p-table responsiveLayout="stack" [value]="cirugias">
         <ng-template pTemplate="caption">
-            <p-button  label="New" icon="pi pi-plus" (onClick)="addCirugia(historia_id)"></p-button>  
-           <p>Antecedentes Quirúrgicos  </p>     
+            <p>Antecedentes Quirúrgicos  </p>   
+            <p-button  label="New" icon="pi pi-plus" (onClick)="addCirugia(historia_id)"></p-button>    
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>

@@ -1,4 +1,4 @@
-<p>editar-farmacos works!</p>
+
 <div *ngIf="isExist">
     <form [formGroup]="formBuilderFarmaco" (ngSubmit)="enviarDatos()">
         <label for="prescripcion"> Prescripcion</label><br>
@@ -7,9 +7,6 @@
         <label for="duracion">duracion</label>
         <input type="number" formControlName="duracion" placeholder="max 365 dias">Dias<br>
 
-        <label>Fecha de creacion.</label>
-        <input type="date" formControlName="fecha"> <br>
-        
         <label for="medicos">Medicos</label>
         <select formControlName="medico">
             <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>

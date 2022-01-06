@@ -1,11 +1,24 @@
-<p>consultar-medico works!</p>
-
 <form [formGroup]="formQuery" (ngSubmit)="buscarMedico()">
     <label>id medico:</label>
     <input type="number" formControlName="id" min="1"> <br>
     <button [disabled]="formQuery.invalid">buscar</button>
 </form>
 
-<div *ngIf="sended">
-    {{medico.id}}-{{medico.nombre}}
+<div class="card">
+    <p-table responsiveLayout="stack" [value]="medicos">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-medicos let-columns="columns">
+            <tr>
+                <td *ngFor="let col of cols">
+                    <span class="p-column-title">{{col.header}}</span>{{medicos[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

@@ -1,4 +1,4 @@
-<p>consultar-farmacos works!</p>
+
 <div class="card">
     <p-table responsiveLayout="stack" [value]="farmacos">
         <ng-template pTemplate="caption">
@@ -38,7 +38,7 @@
                     <ng-container *ngFor="let medicamento of farmacos.medicamentos">
                         Nombre: {{medicamento.nombre}} <br>
                         Marca:   {{medicamento.marca}} <br>
-                        Dosis:   {{medicamento.dosis}} <br>  <br>
+                        Dosis:   {{medicamento.dosis}} mg<br>  <br>
                     </ng-container>
                 </td>
                 <td>

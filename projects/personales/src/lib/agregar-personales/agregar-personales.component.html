@@ -1,18 +1,15 @@
-<p>agregar-personales works!</p>
 <div *ngIf="isExist">
     <form [formGroup]="formBuilderPersonales" (ngSubmit)="enviarDatos()">
         
         <label for="descripcion"> Descripcion</label><br>
         <textarea formControlName="descripcion" cols="30" rows="10"></textarea><br>
-        <label for="estado">Estado:</label><br>
+        <label for="estado">Estado:</label>
         <select formControlName="estado">
             <option value="curado">Curado</option>
             <option value="padece">Padece</option>
             <option value="tratamiento">En tratamiento</option>
             <option value="sin tratamiento">Sin tratamiento</option>
         </select><br>
-        <label>Fecha de Creacion.</label>
-        <input type="date" formControlName="fecha"> <br>
         <label for="medicos">Medicos</label>
         <select formControlName="medico">
             <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>
@@ -23,11 +20,11 @@
                 <select formControlName="id">
                     <option *ngFor="let item of listEnfermedades" [ngValue]="item.id" >{{item.id}}-{{item.nombre}}-{{item.tipo}}</option>
                 </select>
-                <button (click)="removeEnfermedad(i)">Remove</button>   
+                <button (click)="removeEnfermedad(i)">Eliminar Enfermedad</button>   
             </div>
         </div>
         <p>
-            <button type="button" (click)="addEnfermedad()">Add</button>
+            <button type="button" (click)="addEnfermedad()">Agregar Enfermedad</button>
         </p>
           <button [disabled]="formBuilderPersonales.invalid">Enviar</button>
     </form>

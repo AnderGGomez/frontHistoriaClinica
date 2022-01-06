@@ -10,10 +10,13 @@ import { PacientesService } from '../services/pacientes.service';
   styleUrls: ['./editar-paciente.component.css']
 })
 export class EditarPacienteComponent implements OnInit {
+  dia: string | undefined;
 
   constructor(
     private pacienteServicio: PacientesService
-  ) { }
+  ) { 
+    this.dia = this.calculateDate();
+  }
 
   ngOnInit(): void {
   }
@@ -54,6 +57,11 @@ export class EditarPacienteComponent implements OnInit {
     this.formQuery.reset();
 
     this.updateForm();
+  }
+
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
   }
 
   updateForm(): void{

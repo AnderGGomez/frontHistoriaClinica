@@ -1,10 +1,8 @@
-<p>consultar-nacimiento works!</p>
-
 <div class="card">
     <p-table responsiveLayout="stack" [value]="nacimientos">
         <ng-template pTemplate="caption">
            <p>Antecedentes de Nacimiento</p>   
-           <p-button  label="New" icon="pi pi-plus" (onClick)="addNacimiento(historia_id)"></p-button>    
+           <p-button  label="New" icon="pi pi-plus" [disabled]="exist" (onClick)="addNacimiento(historia_id)"></p-button>    
         </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>

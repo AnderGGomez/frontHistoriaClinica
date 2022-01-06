@@ -11,10 +11,12 @@ import { PacientesService } from '../services/pacientes.service';
 })
 
 export class AgregarPacienteComponent implements OnInit {
-
+  dia: string | undefined;
   constructor(
     private pacienteServicio: PacientesService
-  ) { }
+  ) {
+    this.dia = this.calculateDate();
+   }
 
   ngOnInit(): void {
   }

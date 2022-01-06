@@ -10,13 +10,25 @@ import { MedicamentosService } from '../services/medicamentos.service';
   styleUrls: ['./ver-medicamentos.component.css']
 })
 export class VerMedicamentosComponent implements OnInit {
-
+  cols: any[] | undefined;
   constructor(
     private medicamentoServicio : MedicamentosService
-  ) { }
+  ) { 
+    this.cols = [
+      { field: 'id',              header: 'Identificacion' },
+      { field: 'nombre',          header: 'Nombre' },
+      { field: 'marca',           header: 'marca' },
+      { field: 'dosis',           header: 'dosis' },
+      { field: 'presentacion',    header: 'presentacion' },
+      { field: 'fechaCaducidad',  header: 'fechaCaducidad' },
+
+    ];
+  }
 
   ngOnInit(): void {
+    this.obtenerMedicamentos();
   }
+
   public medicamentos: Array<Medicamento> = new Array();
   @Input() update : boolean | undefined;
 

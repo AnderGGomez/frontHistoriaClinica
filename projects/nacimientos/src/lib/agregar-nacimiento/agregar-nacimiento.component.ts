@@ -52,6 +52,7 @@ export class AgregarNacimientoComponent implements OnInit {
    }
     
   }
+  
 
   async getMedicos():Promise<void>{
     this.medicos = await lastValueFrom(this.medicoServicios.obtenerMedicos());
@@ -101,6 +102,7 @@ export class AgregarNacimientoComponent implements OnInit {
   updateForm(): void{
     this.formBuilderNacimiento.patchValue(this.nacimiento);
     this.formBuilderNacimiento.get('medico')?.setValue(this.medicos[0]);
+    this.formBuilderNacimiento.get('fechaNacimiento')?.setValue(this.nacimiento.historia.paciente.fechaNacimiento);
   }
 
   async enviarDatos(){

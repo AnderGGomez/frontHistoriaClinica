@@ -1,7 +1,7 @@
 <p>eliminar-paciente works!</p>
 <div *ngIf="sended == false">
     <form [formGroup]="formQuery" (ngSubmit)="buscarPaciente()">
-        <label>Id usuario</label>
+        <label>Id Paciente</label>
         <input type="number" min="1" formControlName="id">
         <button [disabled]="formQuery.invalid">buscar</button>
     </form>

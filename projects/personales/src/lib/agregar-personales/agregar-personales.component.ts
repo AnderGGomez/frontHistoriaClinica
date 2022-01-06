@@ -101,7 +101,13 @@ export class AgregarPersonalesComponent implements OnInit {
   updateForm(): void{
     this.formBuilderPersonales.patchValue(this.personal);
     this.formBuilderPersonales.get('medico')?.setValue(this.medicos[0]);
+    this.formBuilderPersonales.get('fecha')?.setValue(this.calculateDate());
     console.log(this.formBuilderPersonales)
+  }
+
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
   }
 
   async enviarDatos(){

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HerenciasService } from '../services/herencias.service';
 import { MedicosService } from '@utp/medicos';
 import { lastValueFrom } from 'rxjs';
@@ -20,6 +20,7 @@ export class AgregarHerenciaComponent implements OnInit {
 
   constructor(
     private _router : ActivatedRoute,
+    private router : Router,
     private fb : FormBuilder,
     private medicoServicios : MedicosService,
     private herenciaServicio : HerenciasService,
@@ -49,6 +50,11 @@ export class AgregarHerenciaComponent implements OnInit {
       console.log("esta historia no existe")
    }
     
+  }
+
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
   }
 
   async getMedicos():Promise<void>{
@@ -102,6 +108,7 @@ export class AgregarHerenciaComponent implements OnInit {
   updateForm(): void{
     this.formBuilderHerencia.patchValue(this.herencia);
     this.formBuilderHerencia.get('medico')?.setValue(this.medicos[0]);
+    this.formBuilderHerencia.get('fechaCreacion')?.setValue(this.calculateDate());
   }
 
   async enviarDatos(){
@@ -112,7 +119,8 @@ export class AgregarHerenciaComponent implements OnInit {
         this.removeEnfermedad(index);
       }
       this.formBuilderHerencia.reset();
-      this.ngOnInit();
+      let pacientePK = this.herencia.historia.paciente.id;
+      this.router.navigate(['historia-clinica/query-historia/', pacientePK]);
     }
     
   }

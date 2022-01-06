@@ -16,10 +16,7 @@ export class ConsultarPacienteComponent implements OnInit {
   constructor(
     private pacienteServicio: PacientesService,
     private router : Router
-  ) { }
-
-  ngOnInit(): void {
-
+  ) {
     this.cols = [
       { field: 'id',              header: 'Identificacion' },
       { field: 'nombre',          header: 'Nombre' },
@@ -30,6 +27,9 @@ export class ConsultarPacienteComponent implements OnInit {
       { field: 'fechaNacimiento', header: 'fecha nacimiento' },
       { field: 'email',           header: 'email' },
     ];
+   }
+
+  ngOnInit(): void {
   }
 
   public pacientes: Array<Paciente> = new Array();

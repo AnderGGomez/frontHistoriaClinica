@@ -9,8 +9,14 @@ import { EnfermedadesService } from '../services/enfermedades.service';
   styleUrls: ['./ver-enfermedades.component.css']
 })
 export class VerEnfermedadesComponent implements OnInit {
-
-  constructor(private enfermedadServicio : EnfermedadesService) { }
+  cols: any[] | undefined;
+  constructor(private enfermedadServicio : EnfermedadesService) {
+    this.cols = [
+      { field: 'id',              header: 'Identificacion' },
+      { field: 'nombre',          header: 'Nombre' },
+      { field: 'tipo',           header: 'Tipo' },
+    ];
+   }
 
   ngOnInit(): void {
     this.obtenerEnfermedades();

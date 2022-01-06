@@ -1,4 +1,3 @@
-<p>editar-personales works!</p>
 <div *ngIf="isExist">
     <form [formGroup]="formBuilderPersonales" (ngSubmit)="enviarDatos()">
         
@@ -11,8 +10,6 @@
             <option value="tratamiento">En tratamiento</option>
             <option value="sin tratamiento">Sin tratamiento</option>
         </select><br>
-        <label>Fecha de Creacion.</label>
-        <input type="date" formControlName="fecha"> <br>
         <label for="medicos">Medicos</label>
         <select formControlName="medico">
             <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>

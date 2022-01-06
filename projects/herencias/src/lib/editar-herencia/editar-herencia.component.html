@@ -16,9 +16,6 @@
         <input formControlName="primerApellido"> <br>
         <label>Segundo Apellido</label>
         <input formControlName="segundoApellido"> <br>
-        <label>Fecha de Creacion.</label>
-        <input type="date" formControlName="fechaCreacion"> <br>
-        <p>Ultima edicion realizada por : {{herencia.medico.id}}-{{herencia.medico.nombre}}</p>
         <label for="medicos">Medico</label>
         <select formControlName="medico">
             <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>

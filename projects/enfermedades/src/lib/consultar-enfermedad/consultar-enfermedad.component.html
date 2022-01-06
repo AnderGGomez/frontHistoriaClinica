@@ -5,6 +5,21 @@
     <button [disabled]="formQuery.invalid">buscar</button>
 </form>
 
-<div *ngIf="sended">
-    {{enfermedad.id}}-{{enfermedad.nombre}}-{{enfermedad.tipo}}
+<div class="card">
+    <p-table responsiveLayout="stack" [value]="enfermedades">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-enfermedades let-columns="columns">
+            <tr>
+                <td *ngFor="let col of cols">
+                    <span class="p-column-title">{{col.header}}</span>{{enfermedades[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

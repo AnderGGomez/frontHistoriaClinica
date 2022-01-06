@@ -11,8 +11,19 @@ import { MedicamentosService } from '../services/medicamentos.service';
   styleUrls: ['./consultar-medicamento.component.css']
 })
 export class ConsultarMedicamentoComponent implements OnInit {
+  cols: any[] | undefined;
+  public medicamentos : Array<Medicamento> = new Array();
+  constructor(private medicamentoServicio: MedicamentosService) { 
+    this.cols = [
+      { field: 'id',              header: 'Identificacion' },
+      { field: 'nombre',          header: 'Nombre' },
+      { field: 'marca',           header: 'marca' },
+      { field: 'dosis',           header: 'dosis' },
+      { field: 'presentacion',    header: 'presentacion' },
+      { field: 'fechaCaducidad',  header: 'fechaCaducidad' },
 
-  constructor(private medicamentoServicio: MedicamentosService) { }
+    ];
+  }
 
   ngOnInit(): void {
   }
@@ -25,8 +36,9 @@ export class ConsultarMedicamentoComponent implements OnInit {
   })
 
   async buscarMedicamento():Promise<void>{
+    this.medicamentos.pop();
     let pk = this.formQuery.get("id")?.value;
-    this.medicamento = await lastValueFrom(this.medicamentoServicio.obtenerMedicamento(pk))
+    this.medicamentos.push( await lastValueFrom(this.medicamentoServicio.obtenerMedicamento(pk)));
     this.sended = true;
   }
 

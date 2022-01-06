@@ -1,8 +1,5 @@
-<p>agregar-nacimiento works!</p>
 <div *ngIf="isExist">
     <form [formGroup]="formBuilderNacimiento" (ngSubmit)="enviarDatos()">
-        <label>Fecha de nacimiento.</label>
-        <input type="date" formControlName="fechaNacimiento"> <br>
         <label>Tipo Parto</label>
         <select formControlName="tipoParto">
             <option value="natural">parto natural</option>

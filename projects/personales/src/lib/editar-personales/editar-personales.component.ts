@@ -103,9 +103,15 @@ export class EditarPersonalesComponent implements OnInit {
       const element = this.formBuilderPersonales.get('enfermedades') as FormArray;
       element.push(this.newEnfermedad());
     }
+    
     this.formBuilderPersonales.patchValue(this.personal);
-    this.formBuilderPersonales.get('medico')?.setValue(this.medicos.find(x => x.id == this.personal.medico.id))
+    this.formBuilderPersonales.get('medico')?.setValue(this.medicos.find(x => x.id == this.personal.medico.id));
+    this.formBuilderPersonales.get('fecha')?.setValue(this.calculateDate());
+  }
 
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
   }
 
   async enviarDatos():Promise<void>{

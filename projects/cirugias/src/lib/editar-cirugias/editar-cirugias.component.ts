@@ -14,6 +14,7 @@ import { Cirugia } from '../model/cirugia';
 export class EditarCirugiasComponent implements OnInit {
 
   public medicos : Array<any> = new Array;
+  dia : string | undefined;
 
   constructor(
     private _router : ActivatedRoute,
@@ -21,6 +22,7 @@ export class EditarCirugiasComponent implements OnInit {
     private medicoServicios : MedicosService,
     private cirugiaServicio : CirugiasService,
   ) { 
+    this.dia = this.calculateDate();
     this.getMedicos();
   }
 
@@ -44,6 +46,11 @@ export class EditarCirugiasComponent implements OnInit {
     
   }
 
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
+  }
+
   async getMedicos():Promise<void>{
     this.medicos = await lastValueFrom(this.medicoServicios.obtenerMedicos());
   }
@@ -65,6 +72,8 @@ export class EditarCirugiasComponent implements OnInit {
   updateForm(): void{
     this.formBuilderCirugia.patchValue(this.cirugia);
     this.formBuilderCirugia.get('medico')?.setValue(this.medicos.find(x => x.id == this.cirugia.medico.id))
+    this.formBuilderCirugia.get('fechaCreacion')?.setValue(this.calculateDate());
+
   }
 
   async enviarDatos(){

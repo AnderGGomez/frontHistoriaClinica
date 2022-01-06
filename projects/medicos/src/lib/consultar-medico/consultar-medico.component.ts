@@ -10,10 +10,25 @@ import { MedicosService } from '../services/medicos.service';
   styleUrls: ['./consultar-medico.component.css']
 })
 export class ConsultarMedicoComponent implements OnInit {
-
+  cols: any[] | undefined;
+  public medicos : Array<Medico> = new Array();
   constructor(
     private medicoServicio: MedicosService
-  ) { }
+  ) {
+    this.cols = [
+      { field: 'id',              header: 'Identificacion' },
+      { field: 'nombre',          header: 'Nombre' },
+      { field: 'segundoNombre',   header: 'S. Nombre' },
+      { field: 'primerApellido',  header: 'Apellido' },
+      { field: 'segundoApellido', header: 'S. Apellido' },
+      { field: 'identificacion',  header: 'CC' },
+      { field: 'fechaNacimiento', header: 'fecha nacimiento' },
+      { field: 'email',           header: 'email' },
+      { field: 'especialidad',    header: 'especialidad' },
+      { field: 'cargo',           header: 'cargo' },
+      { field: 'ips',             header: 'ips' },
+    ];
+  }
 
   ngOnInit(): void {
   }
@@ -27,7 +42,7 @@ export class ConsultarMedicoComponent implements OnInit {
 
   async buscarMedico():Promise<void>{
     let pk = this.formQuery.get("id")?.value;
-    this.medico = await lastValueFrom(this.medicoServicio.obtenerMedico(pk))
+    this.medicos.push(await lastValueFrom(this.medicoServicio.obtenerMedico(pk)));
     this.sended = true;
   }
 

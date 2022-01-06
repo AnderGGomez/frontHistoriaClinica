@@ -1,15 +1,12 @@
-<p>agregar-cirugias works!</p>
 <div *ngIf="isExist">
     <form [formGroup]="formBuilderCirugia" (ngSubmit)="enviarDatos()">
 
         <label>Fecha del Procedimiento.</label>
-        <input type="date" formControlName="fechaProcedimiento"> <br>
+        <input type="date" formControlName="fechaProcedimiento" max="{{dia}}"> <br>
         <label>Procedimiento.</label>
         <input type="text" formControlName="procedimiento"> <br>
         <label>Descripcion.</label><br>
         <textarea name="descripcion" id="descripcion" cols="30" rows="10" formControlName="descripcion"></textarea><br>
-        <label>Fecha de creacion.</label>
-        <input type="date" formControlName="fechaCreacion"> <br>
         <label for="medicos">Medicos</label>
         <select formControlName="medico">
             <option *ngFor="let medico of medicos" [ngValue]="medico" >{{medico.id}}-{{medico.nombre}}</option>

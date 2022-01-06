@@ -1,7 +1,6 @@
-<p>consultar-paciente works!</p>
 
 <form [formGroup]="formQuery" (ngSubmit)="buscarPaciente()">
-    <label>id usuario:</label>
+    <label>id Paciente:</label>
     <input type="number" formControlName="id" min="1"> <br>
     <button [disabled]="formQuery.invalid">buscar</button>
 </form>
@@ -9,9 +8,6 @@
 
 <div class="card">
     <p-table responsiveLayout="stack" [value]="pacientes">
-        <ng-template pTemplate="caption">
-            Stack
-        </ng-template>
         <ng-template pTemplate="header" let-columns>
             <tr>
                 <th *ngFor="let col of cols">

@@ -17,6 +17,7 @@ import { FarmacosModule } from '@utp/farmacos';
 import { PersonalesModule} from '@utp/personales';
 import { CirugiasModule } from '@utp/cirugias';
 import {TabViewModule} from 'primeng/tabview';
+import {FieldsetModule} from 'primeng/fieldset';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {TabViewModule} from 'primeng/tabview';
     HttpClientModule,
     ReactiveFormsModule,
     TabViewModule,
+    FieldsetModule,
     PacientesModule,
     HerenciasModule,
     NacimientosModule,

@@ -1,4 +1,19 @@
-<p>ver-medicamentos works!</p>
-<div *ngFor="let item of medicamentos">
-    {{item.id}}-{{item.nombre}}
+
+<div class="card">
+    <p-table responsiveLayout="stack" [value]="medicamentos">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of cols">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-medicamentos let-columns="columns">
+            <tr>
+                <td *ngFor="let col of cols">
+                    <span class="p-column-title">{{col.header}}</span>{{medicamentos[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

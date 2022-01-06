@@ -30,6 +30,7 @@ export class ConsultarHistoriaComponent implements OnInit {
     console.log(haveHistory)
     if (haveHistory){
       this.historia = await lastValueFrom(this.historiaServicio.obtenerHistoriaByPaciente(pk))
+      this.historia.paciente.sexo=this.historia.paciente.sexo?.toUpperCase();
       this.pkHistoria = this.historia.id;
     }else{
       this.router.navigate(['historia-clinica/add-historia', pk])

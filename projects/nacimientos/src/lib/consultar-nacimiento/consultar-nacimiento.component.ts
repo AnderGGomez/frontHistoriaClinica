@@ -13,6 +13,7 @@ import { NacimientosService } from '../services/nacimientos.service';
 export class ConsultarNacimientoComponent implements OnInit {
 
   cols: any[] | undefined;
+  public exist : boolean = false;
   
   constructor(
     private nacimientoServicio : NacimientosService,
@@ -45,6 +46,7 @@ export class ConsultarNacimientoComponent implements OnInit {
       let data : Nacimiento = await lastValueFrom(this.nacimientoServicio.obtenerNacimientoByHistoria(historia_id));
       if (data != null){
         this.nacimientos.push(data);
+        this.exist = true;
       }
     }
   }

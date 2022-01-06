@@ -49,6 +49,11 @@ export class EditarFarmacosComponent implements OnInit {
    }
   }
 
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
+  }
+
   async getMedicos():Promise<void>{
     this.medicos = await lastValueFrom(this.medicoServicios.obtenerMedicos());
   }
@@ -102,15 +107,13 @@ export class EditarFarmacosComponent implements OnInit {
     }
     this.formBuilderFarmaco.patchValue(this.farmaco);
     this.formBuilderFarmaco.get('medico')?.setValue(this.medicos.find(x => x.id == this.farmaco.medico.id))
-  
-    console.log(this.formBuilderFarmaco)
-    console.log(this.farmaco)
+    this.formBuilderFarmaco.get('fecha')?.setValue(this.calculateDate());
   }
 
   async enviarDatos():Promise<void>{
     let pk = this.formBuilderFarmaco.get("id")?.value;
+    let paciente = this.farmaco.historia.paciente.id;
     let dataReturn: boolean | false;
-    console.log(this.formBuilderFarmaco)
     dataReturn = await lastValueFrom(this.farmacoServicio.editarFarmaco(pk, this.formBuilderFarmaco.value))
     console.log(dataReturn);
     if(dataReturn){
@@ -118,7 +121,7 @@ export class EditarFarmacosComponent implements OnInit {
         this.removeMedicamento(index);
       }
       this.formBuilderFarmaco.reset();
-      this.ngOnInit();
+      this.router.navigate(['historia-clinica/query-historia/', paciente]);
     }
     
   }

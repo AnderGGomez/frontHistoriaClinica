@@ -16,6 +16,7 @@ import { HistoriaClinicaService } from '../services/historia-clinica.service';
 export class AgregarCirugiasComponent implements OnInit {
 
   public medicos : Array<any> = new Array;
+  dia : string | undefined;
 
   constructor(
     private _router : ActivatedRoute,
@@ -24,6 +25,7 @@ export class AgregarCirugiasComponent implements OnInit {
     private cirugiaServicio : CirugiasService,
     private historiaServicio : HistoriaClinicaService,
   ) { 
+    this.dia = this.calculateDate();
     this.getMedicos();
   }
 
@@ -45,6 +47,10 @@ export class AgregarCirugiasComponent implements OnInit {
       console.log("esta historia no existe")
    }
     
+  }
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
   }
 
   async getMedicos():Promise<void>{
@@ -68,6 +74,7 @@ export class AgregarCirugiasComponent implements OnInit {
   updateForm(): void{
     this.formBuilderCirugia.patchValue(this.cirugia);
     this.formBuilderCirugia.get('medico')?.setValue(this.medicos[0]);
+    this.formBuilderCirugia.get('fechaCreacion')?.setValue(this.calculateDate());
   }
 
   async enviarDatos(){

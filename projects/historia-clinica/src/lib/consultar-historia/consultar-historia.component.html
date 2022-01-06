@@ -1,8 +1,30 @@
-<p>consultar-historia works!</p>
-
-<div>
-    {{historia.id}}-{{historia.eps}}-{{historia.paciente.nombre}}
-</div>
+<p-fieldset legend="{{historia.paciente.nombre}}" [toggleable]="true">
+    <div class="grid">
+        <div class="col-12 md:col-6 lg:col-3">
+            Nombre: {{historia.paciente.nombre}} {{historia.paciente.segundoNombre}} <br>
+            Apellidos: {{historia.paciente.primerApellido}} {{historia.paciente.segundoApellido}} <br>
+            Identificacion: {{historia.paciente.identificacion}} <br>
+            Fecha Nacimiento: {{historia.paciente.fechaNacimiento}} <br>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            Email: {{historia.paciente.email}} <br>
+            Telefono: {{historia.paciente.telefono}}<br>
+            Direccion: {{historia.paciente.direccion}}<br>
+            Estado Civil: {{historia.paciente.estadoCivil}}<br>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            Sexo:{{historia.paciente.sexo}} <br>
+            Estrato: {{historia.paciente.estrato}} <br>
+            Ocupacion: {{historia.paciente.ocupacion}}<br>
+            Etnia: {{historia.paciente.etnia}} <br>
+        </div>
+        <div class="col-12 md:col-6 lg:col-3">
+            Discapacidad: {{historia.paciente.discapacidad}}<br>
+            Religion: {{historia.paciente.religion}}<br>
+            EPS: {{historia.eps}} <br>
+        </div>
+    </div>
+</p-fieldset>
 <lib-join-historia [historiaId]="pkHistoria">
     
 </lib-join-historia>

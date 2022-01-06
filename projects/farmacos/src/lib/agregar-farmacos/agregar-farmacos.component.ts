@@ -36,6 +36,11 @@ export class AgregarFarmacosComponent implements OnInit {
     this.setHistoria(Number(this._router.snapshot.paramMap.get('id')));
   }
 
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
+  }
+
   public farmaco  : Farmaco = new Farmaco;
   public isExist  : boolean = false;
 
@@ -100,17 +105,19 @@ export class AgregarFarmacosComponent implements OnInit {
   updateForm(): void{
     this.formBuilderFarmaco.patchValue(this.farmaco);
     this.formBuilderFarmaco.get('medico')?.setValue(this.medicos[0]);
+    this.formBuilderFarmaco.get('fecha')?.setValue(this.calculateDate());
+
   }
 
   async enviarDatos(){
-    console.log(this.formBuilderFarmaco);
+    let paciente = this.farmaco.historia.paciente.id;
     let dataReturn = await lastValueFrom(this.farmacoServicio.agregarFarmaco(this.formBuilderFarmaco.value))
     if(dataReturn != null){
       for (let index = 0; index < this.formBuilderFarmaco.get("medicamentos")?.value.length; index++) {
         this.removeMedicamento(index);
       }
       this.formBuilderFarmaco.reset();
-      this.ngOnInit();
+      this.router.navigate(['historia-clinica/query-historia/', paciente]);
     } 
   }
 }

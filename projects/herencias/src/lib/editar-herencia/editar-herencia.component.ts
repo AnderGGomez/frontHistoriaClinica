@@ -58,6 +58,11 @@ export class EditarHerenciaComponent implements OnInit {
     this.listEnfermedades = await lastValueFrom(this.enfermedadServicio.obtenerEnfermedades());
   }
 
+  calculateDate():string{
+    let today: Date = new Date();
+    return today.toISOString().split("T")[0]
+  }
+
 
   formBuilderHerencia = this.fb.group({
     id              : new FormControl(''),
@@ -105,11 +110,12 @@ export class EditarHerenciaComponent implements OnInit {
     }
     this.formBuilderHerencia.patchValue(this.herencia);
     this.formBuilderHerencia.get('medico')?.setValue(this.medicos.find(x => x.id == this.herencia.medico.id))
-
+    this.formBuilderHerencia.get('fechaCreacion')?.setValue(this.calculateDate());
   }
 
   async enviarDatos():Promise<void>{
     let pk = this.formBuilderHerencia.get("id")?.value;
+    let pacientePK = this.herencia.historia.paciente.id;
     let dataReturn: boolean | false;
     console.log(this.formBuilderHerencia)
     dataReturn = await lastValueFrom(this.herenciaServicio.editarHerencia(pk, this.formBuilderHerencia.value))
@@ -119,7 +125,9 @@ export class EditarHerenciaComponent implements OnInit {
         this.removeEnfermedad(index);
       }
       this.formBuilderHerencia.reset();
-      this.ngOnInit();
+      let pacientePK = this.herencia.historia.paciente.id;
+      this.router.navigate(['historia-clinica/query-historia/', pacientePK]);
+
     }
     
   }
